@@ -47,6 +47,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
                 <?= !empty($arParams["CUSTOM_TITLE_" . $propertyID]) ? $arParams["CUSTOM_TITLE_" . $propertyID] : GetMessage("IBLOCK_FIELD_" . $propertyID) ?><? endif ?>
               <? if (in_array($propertyID, $arResult["PROPERTY_REQUIRED"])): ?><span class="starrequired">*</span><? endif ?>
             </label>
+            <div class="input-group">
             <?}?>
 
 
@@ -268,7 +269,7 @@ $propFail=$propertyID;
                                 ?> checked<?
                               }
                               ?>/>
-                              <label for="property_<?= $key ?>"><?= $arEnum["VALUE"] ?></label><br/>
+                              <label for="property_<?= $key ?>"><b><?= $arEnum["VALUE"] ?></b></label><br/>
                             </div>
                           </div>
                           <?
@@ -312,6 +313,7 @@ $propFail=$propertyID;
                   break;
               endswitch; ?>
             <? if ($propertyID != '526'){?>
+            </div>
           </div>
           <?}?>
         <? endforeach; ?>
