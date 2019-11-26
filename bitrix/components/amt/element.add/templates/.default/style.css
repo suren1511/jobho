@@ -1,0 +1,8 @@
+.error {
+ position: absolute;
+ color: red;
+ bottom: -12px;
+ font-size: 10px;
+}
+.form-bottom{position: relative;}
+.form-bottom .error{right: 0;}

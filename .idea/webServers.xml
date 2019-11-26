@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="0045eb37-727e-4c99-a05d-47a3ddda0530" name="jobhostel_surenin_ru" url="http://212.109.192.56">
+        <fileTransfer host="212.109.192.56" port="22" rootFolder="/home/bitrix/ext_www/jobhostel.surenin.ru" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
