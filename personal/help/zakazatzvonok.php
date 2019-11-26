@@ -3,72 +3,47 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Заказать звонок");
 ?>
 
-
-  <div class="vertical-form">
-    <form action="#">
-      <p><strong>Выберите типa звонка</strong></p>
-      <div class="form-groups">
-        <div class="form-group">
-          <div class="form-group-mini col-4">
-            <input id="cb1" type="checkbox" class="styled align-top">
-            <label for="cb1"><b>Техподдержка.</b><span>Вопросы и консультации по работе с сайтом, техническая поддержка и предложения по улучшению сайта и сервисов</span></label>
-          </div>
-        </div>
-        <div class="form-group">
-          <div class="form-group-mini col-4">
-            <input id="cb2" type="checkbox" class="styled align-top">
-            <label for="cb2"><b>Консультация по ценам.</b><span>Вопросы по подбору услуг и сервисов.</span></label>
-          </div>
-        </div>
-        <div class="form-group">
-          <div class="form-group-mini col-4">
-            <input id="cb3" type="checkbox" class="styled align-top">
-            <label for="cb3"><b>Бухгалтерские документы.</b><span>Вопросы по подбору услуг и сервисов.</span></label>
-          </div>
-        </div>
-        <div class="form-group">
-          <div class="form-group-mini col-4">
-            <input id="cb4" type="checkbox" class="styled">
-            <label for="cb4"><b>Другая тема звонка.</b></label>
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="i1">Телефон</label>
-          <div class="input-group">
-            <input class="form-control" type="text" id="i1" value="">
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="i2">Дата звонка</label>
-          <div class="input-group">
-            <div class="flex-row">
-              <div class="col-2">
-                <input class="form-control" type="text" id="i2" value="">
-              </div>
-              <div class="col-2">
-                <label for="i21">Время для звонка (МСК)</label>
-              </div>
-              <div class="col-2">
-                <input class="form-control" type="text" id="i21" value="">
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="form-group align-top">
-          <label for="i3">Комментарий</label>
-          <div class="input-group">
-            <textarea class="form-control" id="i3"></textarea>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="form-bottom">
-        <input type="submit" class="btn btn--red" value="Заказать звонок">
-      </div>
-    </form>
-  </div>
-
+<?$APPLICATION->IncludeComponent("amt:add.zvonok", "amt_zvonok", Array(
+	"CUSTOM_TITLE_DATE_ACTIVE_FROM" => "",	// * дата начала *
+		"CUSTOM_TITLE_DATE_ACTIVE_TO" => "",	// * дата завершения *
+		"CUSTOM_TITLE_DETAIL_PICTURE" => "",	// * подробная картинка *
+		"CUSTOM_TITLE_DETAIL_TEXT" => "",	// * подробный текст *
+		"CUSTOM_TITLE_IBLOCK_SECTION" => "",	// * раздел инфоблока *
+		"CUSTOM_TITLE_NAME" => "",	// * наименование *
+		"CUSTOM_TITLE_PREVIEW_PICTURE" => "",	// * картинка анонса *
+		"CUSTOM_TITLE_PREVIEW_TEXT" => "",	// * текст анонса *
+		"CUSTOM_TITLE_TAGS" => "",	// * теги *
+		"DEFAULT_INPUT_SIZE" => "30",	// Размер полей ввода
+		"DETAIL_TEXT_USE_HTML_EDITOR" => "N",	// Использовать визуальный редактор для редактирования подробного текста
+		"ELEMENT_ASSOC" => "CREATED_BY",	// Привязка к пользователю
+		"GROUPS" => "",	// Группы пользователей, имеющие право на добавление/редактирование
+		"IBLOCK_ID" => "30",	// Инфо-блок
+		"IBLOCK_TYPE" => "cabinet",	// Тип инфо-блока
+		"LEVEL_LAST" => "Y",	// Разрешить добавление только на последний уровень рубрикатора
+		"LIST_URL" => "",	// Страница со списком своих элементов
+		"MAX_FILE_SIZE" => "0",	// Максимальный размер загружаемых файлов, байт (0 - не ограничивать)
+		"MAX_LEVELS" => "100000",	// Ограничить кол-во рубрик, в которые можно добавлять элемент
+		"MAX_USER_ENTRIES" => "100000",	// Ограничить кол-во элементов для одного пользователя
+		"PREVIEW_TEXT_USE_HTML_EDITOR" => "N",	// Использовать визуальный редактор для редактирования текста анонса
+		"PROPERTY_CODES" => array(	// Свойства, выводимые на редактирование
+			0 => "526",
+			1 => "527",
+			2 => "528",
+			3 => "529",
+			4 => "530",
+			5 => "531",
+			6 => "NAME",
+		),
+		"PROPERTY_CODES_REQUIRED" => "",	// Свойства, обязательные для заполнения
+		"RESIZE_IMAGES" => "N",	// Использовать настройки инфоблока для обработки изображений
+		"SEF_MODE" => "N",	// Включить поддержку ЧПУ
+		"STATUS" => "ANY",	// Редактирование возможно
+		"STATUS_NEW" => "N",	// Деактивировать элемент
+		"USER_MESSAGE_ADD" => "",	// Сообщение об успешном добавлении
+		"USER_MESSAGE_EDIT" => "",	// Сообщение об успешном сохранении
+		"USE_CAPTCHA" => "N",	// Использовать CAPTCHA
+		"COMPONENT_TEMPLATE" => "amt"
+	),
+	false
+);?>
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
