@@ -10,9 +10,7 @@ else {
     $arUser = CUser::GetByID($USER->GetID())->Fetch();
 
   if (in_array(12, $strGroups)){
-    ?>
-    <!--<? print_r($strGroups)?>-->
-    <?
+
   }
 
     if (in_array(12, $strGroups)): //соискатели ?>

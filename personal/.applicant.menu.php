@@ -1,6 +1,13 @@
 <?
 $aMenuLinks = Array(
 	Array(
+		"Вакансии", 
+		"/personal/vacancy/index.php", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
 		"Резюме", 
 		"/personal/resume/index.php", 
 		Array(), 
@@ -12,7 +19,7 @@ $aMenuLinks = Array(
 		"/personal/resume/index_bkp.php", 
 		Array(), 
 		Array(), 
-		"CSite::InGroup(array(1,12))" 
+		"" 
 	)
 );
 ?>

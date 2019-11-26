@@ -1,0 +1,46 @@
+<?
+$aMenuLinks = Array(
+	Array(
+		"Вакансии", 
+		"/personal/vacancy/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Резюме", 
+		"/personal/resume/", 
+		Array(), 
+		Array(), 
+		"CSite::InGroup(array(1,6,12,14))" 
+	),
+	Array(
+		"Настройки", 
+		"/personal/settings/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Мои объекты", 
+		"/personal/lessor/", 
+		Array(), 
+		Array(), 
+		"CSite::InGroup(array(1,6,15))" 
+	),
+	Array(
+		"Помощь", 
+		"/personal/help/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Финансы", 
+		"/personal/billing/", 
+		Array(), 
+		Array(), 
+		"" 
+	)
+);
+?>
