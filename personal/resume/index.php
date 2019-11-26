@@ -368,6 +368,7 @@ else {
                     </div>
                 </div>
 
+
                 <div class="form-bottom">
                     <a href="#" class="btn btn--red">Сохранить</a>
                     <a href="#" class="btn btn--blue">Опубликовать</a>
