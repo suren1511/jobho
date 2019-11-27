@@ -1,0 +1,55 @@
+div.news-list img.preview_picture
+{
+	float:left;
+	margin:0 4px 6px 0;
+}
+.news-date-time {
+	color:#486DAA;
+}
+.point {
+	position: absolute;
+	margin-left: -14px;
+	width: 50px;
+}
+.red {
+	background: rgba(255, 0, 0, 0.2);
+	background: linear-gradient(to top, rgba(255, 0, 0, 0), rgba(255, 0, 0, 0.4), rgba(255, 0, 0, 0)) repeat scroll 0 0 rgba(0, 0, 0, 0);
+}
+.blue {
+	background-color: rgba(0, 0, 255, 0.2);
+	background: linear-gradient(to top, rgba(0, 0, 255, 0), rgba(0, 0, 255, 0.4), rgba(0, 0, 255, 0)) repeat scroll 0 0 rgba(0, 0, 0, 0);
+}
+.green {
+	background-color: rgba(0, 255, 0, 0.2);
+	background: linear-gradient(to top, rgba(0, 255, 0, 0), rgba(0, 255, 0, 0.4), rgba(0, 255, 0, 0)) repeat scroll 0 0 rgba(0, 0, 0, 0);
+}
+.yellow {
+	background-color: rgba(255, 255, 0, 0.2);
+	background: linear-gradient(to top, rgba(255, 255, 0, 0), rgba(255, 255, 0, 0.4), rgba(255, 255, 0, 0)) repeat scroll 0 0 rgba(0, 0, 0, 0);
+}
+.skyblue {
+background-color: rgba(28, 123, 250, 0.2);
+	background: linear-gradient(to top, rgba(28, 123, 250, 0), rgba(28, 123, 250, 0.4), rgba(28, 123, 250, 0)) repeat scroll 0 0 rgba(0, 0, 0, 0);
+}
+.white {
+	background-color: rgb(255, 255, 255);
+}
+.grey {
+	background-color: rgba(133, 133, 133, 0.2);
+	background: linear-gradient(to top, rgba(133, 133, 133, 0), rgba(133, 133, 133, 0.4), rgba(133, 133, 133, 0)) repeat scroll 0 0 rgba(0, 0, 0, 0);
+}
+
+table.maintable tr:first-of-type td {
+	padding: 12px 15px 0 15px !important;
+}
+table.maintable td {
+	padding: 10px 15px 12px !important;
+	font-size: 13px !important;
+	font-family: 'Open Sans', sans-serif !important;
+}
+.maintable img {
+	height: 11px;
+}
+.banner_prop {
+	margin-left: 5px;
+}

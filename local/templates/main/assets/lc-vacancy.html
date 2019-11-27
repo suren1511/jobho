@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0072c6">
+    <title>Вакансии</title>
+
+    <!-- Place favicon.ico in the root directory -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="robots" content="nofollow, noindex"/>
+    <meta name="keywords" content="общежития для рабочих, общежития в москве, подбор персонала"/>
+    <meta name="description" content="Общежития для рабочих  и ИТР, самые низкие цены от 120 рублей в сутки, шаговая доступность от метро, все районы Москвы и Подмосковья. Услуги по подбору персонала, доставке рабочих  и организации питания."/>
+    <script type="text/javascript" data-skip-moving="true">(function (w, d, n) {
+        var cl = "bx-core";
+        var ht = d.documentElement;
+        var htc = ht ? ht.className : undefined;
+        if (htc === undefined || htc.indexOf(cl) !== -1) {
+            return;
+        }
+        var ua = n.userAgent;
+        if (/(iPad;)|(iPhone;)/i.test(ua)) {
+            cl += " bx-ios";
+        } else if (/Android/i.test(ua)) {
+            cl += " bx-android";
+        }
+        cl += (/(ipad|iphone|android|mobile|touch)/i.test(ua) ? " bx-touch" : " bx-no-touch");
+        cl += w.devicePixelRatio && w.devicePixelRatio >= 2 ? " bx-retina" : " bx-no-retina";
+        var ieVersion = -1;
+        if (/AppleWebKit/.test(ua)) {
+            cl += " bx-chrome";
+        } else if ((ieVersion = getIeVersion()) > 0) {
+            cl += " bx-ie bx-ie" + ieVersion;
+            if (ieVersion > 7 && ieVersion < 10 && !isDoctype()) {
+                cl += " bx-quirks";
+            }
+        } else if (/Opera/.test(ua)) {
+            cl += " bx-opera";
+        } else if (/Gecko/.test(ua)) {
+            cl += " bx-firefox";
+        }
+        if (/Macintosh/i.test(ua)) {
+            cl += " bx-mac";
+        }
+        ht.className = htc ? htc + " " + cl : cl;
+
+        function isDoctype() {
+            if (d.compatMode) {
+                return d.compatMode == "CSS1Compat";
+            }
+            return d.documentElement && d.documentElement.clientHeight;
+        }
+
+        function getIeVersion() {
+            if (/Opera/i.test(ua) || /Webkit/i.test(ua) || /Firefox/i.test(ua) || /Chrome/i.test(ua)) {
+                return -1;
+            }
+            var rv = -1;
+            if (!!(w.MSStream) && !(w.ActiveXObject) && ("ActiveXObject" in w)) {
+                rv = 11;
+            } else if (!!d.documentMode && d.documentMode >= 10) {
+                rv = 10;
+            } else if (!!d.documentMode && d.documentMode >= 9) {
+                rv = 9;
+            } else if (d.attachEvent && !/Opera/.test(ua)) {
+                rv = 8;
+            }
+            if (rv == -1 || rv == 8) {
+                var re;
+                if (n.appName == "Microsoft Internet Explorer") {
+                    re = new RegExp("MSIE ([0-9]+[\.0-9]*)");
+                    if (re.exec(ua) != null) {
+                        rv = parseFloat(RegExp.$1);
+                    }
+                } else if (n.appName == "Netscape") {
+                    rv = 11;
+                    re = new RegExp("Trident/.*rv:([0-9]+[\.0-9]*)");
+                    if (re.exec(ua) != null) {
+                        rv = parseFloat(RegExp.$1);
+                    }
+                }
+            }
+            return rv;
+        }
+    })(window, document, navigator);</script>
+
+
+    <link href="css/core.min.css" type="text/css" rel="stylesheet"/>
+    <link href="css/core_date.min.css" type="text/css" rel="stylesheet"/>
+    <link href="css/core_popup.min.css" type="text/css" rel="stylesheet"/>
+
+    <link href="fonts/opensans/ui.font.opensans.min.css" type="text/css" rel="stylesheet"/>
+    <link href="fonts/fontawesome/font-awesome.css" type="text/css" rel="stylesheet"/>
+
+    <!--    <link href="/local/templates/main/components/bitrix/system.auth.authorize/.default/style.min.css?1558529553837" type="text/css" rel="stylesheet"/>-->
+    <!--    <link href="/bitrix/components/bitrix/system.show_message/templates/.default/style.min.css?155852934551" type="text/css" rel="stylesheet"/>-->
+
+    <link href="css/reset.css" type="text/css" data-template-style="true" rel="stylesheet"/>
+    <link href="css/normalize.css" type="text/css" data-template-style="true" rel="stylesheet"/>
+    <link href="js/vendor/slick-slider/slick.min.css" type="text/css" data-template-style="true" rel="stylesheet"/>
+    <link href="js/vendor/slick-slider/slick-theme.min.css" type="text/css" data-template-style="true" rel="stylesheet"/>
+    <link href="css/typography.css" type="text/css" data-template-style="true" rel="stylesheet"/>
+    <link href="css/template_styles.css" type="text/css" data-template-style="true" rel="stylesheet"/>
+    <link href="css/custom.css" type="text/css" data-template-style="true" rel="stylesheet"/>
+    <link href="css/personal.css" type="text/css" data-template-style="true" rel="stylesheet"/>
+
+</head>
+
+<body>
+
+<div class="wrapper">
+    <header class="header-wrap js-header">
+        <div class="site-width">
+            <div class="header">
+                <div class="header__logo">
+                    <a href="/"><img src="images/logo.png" alt="Авторизация"></a>
+                </div>
+                <div class="header__content">
+                    <div class="header__call">
+                        <a onclick="ga('send', 'event', 'Заказать обратный звонок', 'клик'); yaCounter21524935.reachGoal('PEREZVONIT1'); return true;" href="javascript:void(0)" class="btn btn--red request-call-phone">Заказать
+                            обратный звонок</a>
+                        <span class="header__phone">
+                            <a onclick="ga('send', 'event', 'telefon', 'telefon-click'); yaCounter21524935.reachGoal('POZVONIT'); return true;" href="tel:+74952151053">
+                                <span class="ya-phone">+7 (495) 215-10-53</span>
+							</a>
+                        </span>
+                    </div>
+
+                    <div class="header__menu">
+                        <ul class="top-menu">
+                            <li class="top-menu__item current"><a href="/">Главная</a></li>
+                            <li class="top-menu__item"><a href="/about/">О нас</a></li>
+                            <li class="top-menu__item"><a href="/news/">Новости</a></li>
+                            <li class="top-menu__item"><a href="/sotrudnichestvo/partners/">Партнеры</a></li>
+                            <li class="top-menu__item"><a href="/reviewed/">Отзывы</a></li>
+                            <li class="top-menu__item"><a href="/faq/">FAQ</a></li>
+                            <li class="top-menu__item"><a href="/contacts.php">Контакты</a></li>
+                        </ul>
+                    </div>
+                    <!--                            <div class="login">-->
+                    <!--                               --><!--                            </div>-->
+                </div>
+
+                <div class="header__menu-toggle">
+                    <div class="menu-toggle js-menu-open"><span></span></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <main class="js-main">
+        <div class="site-width">
+            <div class="main-wrap">
+                <div class="left-column">
+                    <div class="left-mobile-menu js-left-mobile-menu">
+                        <div class="menu-toggle menu-toggle--black js-menu-close"><span></span></div>
+
+                        <div class="left-menu-wrap">
+                            <ul class="left-menu">
+                                <li class="left-menu__item js-left-menu-item active opened">
+                                    <a href="/" class="left-menu__link">Общежития по
+                                        регионам<span class="left-menu__link__arr js-left-menu-arr"></span></a>
+                                    <ul class="left-menu__sub">
+                                        <li class="left-menu__item-sub ">
+                                            <a href="/hostel_in_msc/" class="left-menu__link-sub">Общежития Москвы</a>
+                                        </li>
+                                        <li class="left-menu__item-sub ">
+                                            <a href="/dormitory_suburbs/" class="left-menu__link-sub">Общежития
+                                                Подмосковья</a></li>
+                                        <li class="left-menu__item-sub ">
+                                            <a href="/hostel_in_spb/" class="left-menu__link-sub">Общежития
+                                                Санкт-Петербурга</a></li>
+                                        <li class="left-menu__item-sub ">
+                                            <a href="/obshejitiya_na_karte.php" class="left-menu__link-sub">Общежития на
+                                                карте</a></li>
+                                    </ul>
+                                </li>
+                                <li class="left-menu__item "><a href="/transportnye_uslugi/" class="left-menu__link">Транспортные
+                                    услуги</a></li>
+                                <li class="left-menu__item "><a href="/organizaciya_pitaniya/" class="left-menu__link">Организация
+                                    питания</a></li>
+                                <li class="left-menu__item "><a href="/jobs/" class="left-menu__link">Вакансии</a></li>
+                                <li class="left-menu__item js-left-menu-item ">
+                                    <a href="/podbor_personala/" class="left-menu__link">Подбор
+                                        персонала<span class="left-menu__link__arr js-left-menu-arr"></span></a>
+                                    <ul class="left-menu__sub">
+                                        <li class="left-menu__item-sub ">
+                                            <a href="/podbor_personala/massovyj-rekruting.php" class="left-menu__link-sub">Массовый
+                                                подбор персонала</a></li>
+                                        <li class="left-menu__item-sub ">
+                                            <a href="/podbor_personala/top-rekruting.php" class="left-menu__link-sub">Индивидуальный
+                                                подбор</a></li>
+                                    </ul>
+                                </li>
+                                <li class="left-menu__item js-left-menu-item ">
+                                    <a href="/sotrudnichestvo/" class="left-menu__link">Сотрудничество<span class="left-menu__link__arr js-left-menu-arr"></span></a>
+                                    <ul class="left-menu__sub">
+                                        <li class="left-menu__item-sub ">
+                                            <a href="/sotrudnichestvo/sobstvennikam.php" class="left-menu__link-sub">Собственникам
+                                                общежитий</a></li>
+                                        <li class="left-menu__item-sub ">
+                                            <a href="/sotrudnichestvo/vladelcam.php" class="left-menu__link-sub">Владельцам
+                                                помещений</a></li>
+                                        <li class="left-menu__item-sub ">
+                                            <a href="/sotrudnichestvo/kadrovim-agenstvam.php" class="left-menu__link-sub">Кадровым
+                                                агентствам</a></li>
+                                        <li class="left-menu__item-sub ">
+                                            <a href="/sotrudnichestvo/avtotransportnim-predpriyatiyam.php" class="left-menu__link-sub">Автотранспортным
+                                                предприятиям</a></li>
+                                        <li class="left-menu__item-sub ">
+                                            <a href="/sotrudnichestvo/predpriyatiyam-obshepita.php" class="left-menu__link-sub">Предприятиям
+                                                общепита</a></li>
+                                    </ul>
+                                </li>
+
+                                <li class="left-menu__item js-left-menu-item ">
+                                    <a href="/aktsii/" class="left-menu__link">Акции<span class="left-menu__link__arr js-left-menu-arr"></span></a>
+                                    <ul class="left-menu__sub">
+                                        <li class="left-menu__item-sub ">
+                                            <a href="/akcija-pereezd-za-nash-schet.php" class="left-menu__link-sub">Переезд
+                                                за наш счёт</a></li>
+                                        <li class="left-menu__item-sub ">
+                                            <a href="/aktsii/smartfon-v-podarok.php" class="left-menu__link-sub">Смартфон
+                                                в подарок</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <a href="/obschezhitie-tsenyi/" class="btn btn--red">Цены на общежития</a>
+                        <a href="/best_deals/" class="btn btn--blue best-deals">Лучшие предложения</a>
+                        <a class="btn dobob" onclick="ga('send', 'event', 'Разместить_общежитие', 'клик'); yaCounter21524935.reachGoal('RAZMOB'); return true;">Разместить
+                            общежитие</a>
+                    </div>
+
+                    <div class="left-offers">
+                        <div class="left-offers__head">
+                            <a href="/best_deals/"> Лучшие предложения</a>
+                            </a>
+                        </div>
+                        <div class="left-offers-list">
+                            <div class="left-offers-list__item">
+                                <img alt="Пушкино-комфорт" src="images/03b37296894cceeef73fdb221e59862b.JPG" class="left-offers-list__img"/>
+
+                                <div class="left-offers-list__content">
+                                    <div class="left-offers-list__place">
+                                        Московская область
+                                    </div>
+                                    <a class="left-offers-list__link" href="/obshejitiye_pushkino_komfort/">Пушкино-комфорт</a>
+                                    <div class="left-offers-list__price">
+                                        Цена от:
+                                        <span class="left-offers-list__catalog-price">129 руб.</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="left-offers-list__item">
+                                <img alt="Немчиновка-комфорт" src="images/7c535e193b2faf702955d765b46ea5b6.jpg" class="left-offers-list__img"/>
+                                <div class="left-offers-list__content">
+                                    <div class="left-offers-list__place">
+                                        Московская область
+                                    </div>
+                                    <a class="left-offers-list__link" href="/obshejitiye_nemchinovka-komfort/">Немчиновка-комфорт</a>
+                                    <div class="left-offers-list__price">
+                                        Цена от:
+                                        <span class="left-offers-list__catalog-price">150 руб.</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="left-offers-list__item">
+                                <img alt="Талалихина-2" src="images/13dfc89de83c67fdc42d9ef9e745b178.jpg" class="left-offers-list__img"/>
+                                <div class="left-offers-list__content">
+                                    <div class="left-offers-list__place">
+                                        Москва
+                                    </div>
+                                    <a class="left-offers-list__link" href="/obshejitiye_talalihina_2/">Талалихина-2</a>
+                                    <div class="left-offers-list__price">
+                                        Цена от:
+                                        <span class="left-offers-list__catalog-price">180 руб.</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="left-offers-list__item">
+                                <img alt="Щелковская-комфорт" src="images/52feb6d7a19e3187432e2cac5f0d1a4d.JPG" class="left-offers-list__img"/>
+                                <div class="left-offers-list__content">
+                                    <div class="left-offers-list__place">
+                                        Москва
+                                    </div>
+                                    <a class="left-offers-list__link" href="/obshejitiye_shchelkovskaya_komfort/">Щелковская-комфорт</a>
+                                    <div class="left-offers-list__price">
+                                        Цена от:
+                                        <span class="left-offers-list__catalog-price">199 руб.</span>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="left-offers-list__item">
+                                <img alt="Потешное" src="images/709c2fc68bd246c4cfdaaa8c0a46db54.jpg" class="left-offers-list__img"/>
+                                <div class="left-offers-list__content">
+                                    <div class="left-offers-list__place">
+                                        Москва
+                                    </div>
+                                    <a class="left-offers-list__link" href="/obshejitiye_poteshnoe/">Потешное</a>
+                                    <div class="left-offers-list__price">
+                                        Цена от:
+                                        <span class="left-offers-list__catalog-price">200 руб.</span>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="left-offers-list__item">
+                                <img alt="Подольск-комфорт" src="images/938c3fc9014240867d6480f5083ea837.JPG" class="left-offers-list__img"/>
+                                <div class="left-offers-list__content">
+                                    <div class="left-offers-list__place">
+                                        Московская область
+                                    </div>
+                                    <a class="left-offers-list__link" href="/obshejitiye_podolsk_komfort/">Подольск-комфорт</a>
+                                    <div class="left-offers-list__price">
+                                        Цена от:
+                                        <span class="left-offers-list__catalog-price">200 руб.</span>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="left-offers-list__item">
+                                <img alt="Краснопрудная" src="images/71ecaea13c30fddf4dab68b72f9ff591.jpg" class="left-offers-list__img"/>
+                                <div class="left-offers-list__content">
+                                    <div class="left-offers-list__place">
+                                        Москва
+                                    </div>
+                                    <a class="left-offers-list__link" href="/obshejitiye_krasnoprudnaya/">Краснопрудная</a>
+                                    <div class="left-offers-list__price">
+                                        Цена от:
+                                        <span class="left-offers-list__catalog-price">210 руб.</span>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="left-offers-list__item">
+                                <img alt="Пушкино - СЕМЕЙНОЕ" src="images/7c535e193b2faf702955d765b46ea5b6.jpg" class="left-offers-list__img"/>
+                                <div class="left-offers-list__content">
+                                    <div class="left-offers-list__place">
+                                        Московская область
+                                    </div>
+                                    <a class="left-offers-list__link" href="/obshejitiye_pushkino_semejnoe/">Пушкино -
+                                        СЕМЕЙНОЕ</a>
+                                    <div class="left-offers-list__price">
+                                        Цена от:
+                                        <span class="left-offers-list__catalog-price">240 руб.</span>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="left-offers-list__item">
+                                <img alt="Исаково-комфорт" src="images/03b37296894cceeef73fdb221e59862b.JPG" class="left-offers-list__img"/>
+                                <div class="left-offers-list__content">
+                                    <div class="left-offers-list__place">
+                                        Московская область
+                                    </div>
+                                    <a class="left-offers-list__link" href="/obshejitiye_isakovo-komfort/">Исаково-комфорт</a>
+                                    <div class="left-offers-list__price">
+                                        Цена от:
+                                        <span class="left-offers-list__catalog-price">250 руб.</span>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="left-offers-list__item">
+                                <img alt="Федоренко-комфорт" src="images/a6d38027a676775372eebfde444b3025.jpg" class="left-offers-list__img"/>
+                                <div class="left-offers-list__content">
+                                    <div class="left-offers-list__place">
+                                        Москва
+                                    </div>
+                                    <a class="left-offers-list__link" href="/obshejitiye_fedorenko-komfort/">Федоренко-комфорт</a>
+                                    <div class="left-offers-list__price">
+                                        Цена от:
+                                        <span class="left-offers-list__catalog-price">205 руб.</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="left-offers-list__all">
+                                <a href="/best_deals/">Все лучшие предложения</a>
+                            </div>
+                        </div>
+
+
+                        <a class="btn btn--red dobob" onclick="ga('send', 'event', 'Разместить_общежитие', 'клик');">Разместить
+                            общежитие</a>
+                    </div>
+
+                    <div class="left-news">
+                        <div class="left-news__head">
+                            <a href="/news/">Новости</a>
+                        </div>
+                        <div class="left-news-list">
+                            <div class="left-news-list__item">
+                                <div class="left-news-list__date">15.05.2019</div>
+                                <div class="left-news-list__head">
+                                    <a href="/news/novosti_kadrovogo_rynka/inostrantsev_priglashayut_v_rf_na_rabotu.html">Иностранцев
+                                        приглашают в РФ на работу </a></div>
+                            </div>
+                            <div class="left-news-list__item">
+                                <div class="left-news-list__date">09.05.2019</div>
+                                <div class="left-news-list__head">
+                                    <a href="/news/novosti_kompanii/otkrylos_novoe_obshchezhitie_v_novoy_moskve.html">Открылось
+                                        комфортное общежитие в Новой Москве </a></div>
+                            </div>
+                            <div class="left-news-list__item">
+                                <div class="left-news-list__date">06.05.2019</div>
+                                <div class="left-news-list__head">
+                                    <a href="/news/novosti_arendnogo_zhilya/biznes_prosit_minfin_otlozhit_vklyuchenie_gostinichnogo_sbora_v_nalogovyy_kodeks.html">
+                                        Бизнес просит Минфин отложить включение гостиничного сбора в Налоговый кодекс
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="left-news-list__item">
+                                <div class="left-news-list__date">17.04.2019</div>
+                                <div class="left-news-list__head">
+                                    <a href="/news/novosti_arendnogo_zhilya/putin_podpisal_zakon_o_zaprete_khostelov_v_zhilykh_pomeshcheniyakh.html">
+                                        Путин подписал закон о запрете хостелов в жилых помещениях
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="width: 199px; background: none repeat scroll 0% 0% rgb(255, 255, 255); height: 7px;"></div>
+                        <div class="leftmenu-bottom dbl">
+                            <div class="left-menu-wrap">
+                                <ul class="left-menu">
+                                    <li class="left-menu__item js-left-menu-item ">
+                                        <a href="/hostel_for_nonresident/" class="left-menu__link">Категории
+                                            общежитий<span class="left-menu__link__arr js-left-menu-arr"></span></a>
+                                        <ul class="left-menu__sub">
+                                            <li class="left-menu__item-sub ">
+                                                <a href="/hostel_family/" class="left-menu__link-sub">Семейные
+                                                    общежития</a>
+                                            </li>
+                                            <li class="left-menu__item-sub ">
+                                                <a href="/hostel_for_woman/" class="left-menu__link-sub">Женские
+                                                    общежития</a>
+                                            </li>
+                                            <li class="left-menu__item-sub ">
+                                                <a href="/hostel_for_two_persons/" class="left-menu__link-sub">Двухместные
+                                                    общежития</a>
+                                            </li>
+                                            <li class="left-menu__item-sub ">
+                                                <a href="/hostel_for_nonresident/" class="left-menu__link-sub">Общежития
+                                                    для иногородних</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="page-content">
+                    <div class="b-personal-breadcrumbs">
+                        <ul>
+                            <li><a href="#">Вакансии</a></li>
+                            <li><a href="#">Резюме</a></li>
+                            <li><a href="#">Настройки</a></li>
+                            <li><a href="#">Объекты</a></li>
+                            <li><a href="#">Помощь</a></li>
+                            <li><a href="#">Финансы</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="b-personal-header">
+                        <h1>Вакансии</h1>
+                    </div>
+
+                    <div class="vacancy__filter">
+                        <div class="select">
+                            <select name="sort1" id="s1">
+                                <option value="">по убыванию зп</option>
+                            </select>
+                        </div>
+                        <div class="select">
+                            <select name="sort2" id="s2">
+                                <option value="">За месяц</option>
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <div class="vacancy_list">
+                        <div class="vacancy__item">
+                            <div class="vacancy__item-head">
+                                <div class="vacancy__item-name">
+                                    <a href="#">Менеджер по персоналу</a>
+                                </div>
+                                <div class="vacancy__item-salary">40 000-40 000 руб.</div>
+                            </div>
+                            <div class="vacancy__item-type">
+                                <a href="#">ООО Эволюшн Менеджент</a>
+                            </div>
+                            <div class="vacancy__item-address">Нижний Новгород</div>
+                            <div class="vacancy__item-text">
+                                <p>Рекрутинг — ключевая задача. Самостоятельный подбор персонала, проведение собеседований, закрытие новых вакансий от стажеров до специалистов уровня среднего менеджмента.
+                                    Опыт работы в найме персонала более 1 года.</p>
+                            </div>
+                            <div class="vacancy__item-bottom align-right">
+                                <div class="vacancy__item-actions">
+                                    <div class="vacancy__item-open"><a href="#">Откликнуться</a></div>
+                                    <div class="vacancy__item-open"><a href="#">Не показывать</a></div>
+                                    <div class="vacancy__item-open"><a href="#">В избранное</a></div>
+                                </div>
+                                <div class="vacancy__item-date"><time>16.06.2018</time></div>
+                                <div class="vacancy__item-warning">
+                                    <a href="#popup-block1" class="show-current-popup"><i class="icon icon-warning"></i></a>
+                                    <div class="current-popup" id="popup-block1">
+                                        <div class="current-popup__back">
+                                            <a href="#" class="close-current-popup"></a>
+                                            <div class="vertical-form">
+                                                <form action="#">
+                                                    <div class="form-groups">
+                                                        <div class="form-group">
+                                                            <input type="radio" class="styled" id="i213" value="before" name="salary2">
+                                                            <label for="i213">Реклама в резюме</label>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <input type="radio" class="styled" id="i223" value="after" name="salary2">
+                                                            <label for="i223">Отклик содержит бессмысленную информацию</label>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <input type="radio" class="styled" id="i233" value="after" name="salary2">
+                                                            <label for="i233">Другое</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <textarea class="form-control" name="qq"></textarea>
+                                                    </div>
+                                                    <div class="form-bottom">
+                                                        <input type="checkbox" id="popup-hide3" class="styled" name="hide" value="1">
+                                                        <label for="popup-hide3">Не показывать</label>
+                                                        <input type="submit" class="btn btn--blue" value="Отправить">
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="vacancy__item">
+                            <div class="vacancy__item-head">
+                                <div class="vacancy__item-name">
+                                    <a href="#">Менеджер по персоналу</a>
+                                </div>
+                                <div class="vacancy__item-salary">40 000-40 000 руб.</div>
+                            </div>
+                            <div class="vacancy__item-type">
+                                <a href="#">ООО Эволюшн Менеджент</a>
+                            </div>
+                            <div class="vacancy__item-address">Нижний Новгород</div>
+                            <div class="vacancy__item-text">
+                                <p>Рекрутинг — ключевая задача. Самостоятельный подбор персонала, проведение собеседований, закрытие новых вакансий от стажеров до специалистов уровня среднего менеджмента.
+                                    Опыт работы в найме персонала более 1 года.</p>
+                            </div>
+                            <div class="vacancy__item-bottom align-right">
+                                <div class="vacancy__item-actions">
+                                    <div class="vacancy__item-open"><a href="#">Откликнуться</a></div>
+                                    <div class="vacancy__item-open"><a href="#">Не показывать</a></div>
+                                    <div class="vacancy__item-open"><a href="#">В избранное</a></div>
+                                </div>
+                                <div class="vacancy__item-date"><time>16.06.2018</time></div>
+                                <div class="vacancy__item-warning">
+                                    <a href="#popup-block2" class="show-current-popup"><i class="icon icon-warning"></i></a>
+                                    <div class="current-popup" id="popup-block2">
+                                        <div class="current-popup__back">
+                                            <a href="#" class="close-current-popup"></a>
+                                            <div class="vertical-form">
+                                                <form action="#">
+                                                    <div class="form-groups">
+                                                        <div class="form-group">
+                                                            <input type="radio" class="styled" id="i213" value="before" name="salary2">
+                                                            <label for="i213">Реклама в резюме</label>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <input type="radio" class="styled" id="i223" value="after" name="salary2">
+                                                            <label for="i223">Отклик содержит бессмысленную информацию</label>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <input type="radio" class="styled" id="i233" value="after" name="salary2">
+                                                            <label for="i233">Другое</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <textarea class="form-control" name="qq"></textarea>
+                                                    </div>
+                                                    <div class="form-bottom">
+                                                        <input type="checkbox" id="popup-hide3" class="styled" name="hide" value="1">
+                                                        <label for="popup-hide3">Не показывать</label>
+                                                        <input type="submit" class="btn btn--blue" value="Отправить">
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="vacancy__item">
+                            <div class="vacancy__item-head">
+                                <div class="vacancy__item-name">
+                                    <a href="#">Менеджер по персоналу</a>
+                                </div>
+                                <div class="vacancy__item-salary">40 000-40 000 руб.</div>
+                            </div>
+                            <div class="vacancy__item-type">
+                                <a href="#">ООО Эволюшн Менеджент</a>
+                            </div>
+                            <div class="vacancy__item-address">Нижний Новгород</div>
+                            <div class="vacancy__item-text">
+                                <p>Рекрутинг — ключевая задача. Самостоятельный подбор персонала, проведение собеседований, закрытие новых вакансий от стажеров до специалистов уровня среднего менеджмента.
+                                    Опыт работы в найме персонала более 1 года.</p>
+                            </div>
+                            <div class="vacancy__item-bottom align-right">
+                                <div class="vacancy__item-actions">
+                                    <div class="vacancy__item-open"><a href="#">Откликнуться</a></div>
+                                    <div class="vacancy__item-open"><a href="#">Не показывать</a></div>
+                                    <div class="vacancy__item-open"><a href="#">В избранное</a></div>
+                                </div>
+                                <div class="vacancy__item-date"><time>16.06.2018</time></div>
+                                <div class="vacancy__item-warning">
+                                    <a href="#popup-block3" class="show-current-popup"><i class="icon icon-warning"></i></a>
+                                    <div class="current-popup" id="popup-block3">
+                                        <div class="current-popup__back">
+                                            <a href="#" class="close-current-popup"></a>
+                                            <div class="vertical-form">
+                                                <form action="#">
+                                                    <div class="form-groups">
+                                                        <div class="form-group">
+                                                            <input type="radio" class="styled" id="i213" value="before" name="salary2">
+                                                            <label for="i213">Реклама в резюме</label>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <input type="radio" class="styled" id="i223" value="after" name="salary2">
+                                                            <label for="i223">Отклик содержит бессмысленную информацию</label>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <input type="radio" class="styled" id="i233" value="after" name="salary2">
+                                                            <label for="i233">Другое</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <textarea class="form-control" name="qq"></textarea>
+                                                    </div>
+                                                    <div class="form-bottom">
+                                                        <input type="checkbox" id="popup-hide3" class="styled" name="hide" value="1">
+                                                        <label for="popup-hide3">Не показывать</label>
+                                                        <input type="submit" class="btn btn--blue" value="Отправить">
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-bottom">
+                        <a href="#" class="btn btn--red">Назад</a>
+                        <a href="#" class="btn btn--blue">Далее</a>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer-wrap js-footer">
+        <div class="site-width">
+            <div class="footer">
+                <div class="footer__logo-wrap">
+                    <div class="footer__logo">
+                        <a href="/"> <img src="images/logo.png" alt="Авторизация"> </a></div>
+
+                    <div class="footer__copyright">© 2009-2019 JOBHOSTEL<span class="footer__copyright-rights"><br>Все права защищены</span>
+                    </div>
+                </div>
+                <div class="footer__menu">
+                    <ul class="footer-menu">
+                        <li class="footer-menu__item current"><a href="/">Главная</a></li>
+                        <li class="footer-menu__item"><a href="/about/">О нас</a></li>
+                        <li class="footer-menu__item"><a href="/news/">Новости</a></li>
+                        <li class="footer-menu__item"><a href="/sotrudnichestvo/partners/">Партнеры</a></li>
+                        <li class="footer-menu__item"><a href="/reviewed/">Отзывы</a></li>
+                        <li class="footer-menu__item"><a href="/faq/">FAQ</a></li>
+                        <li class="footer-menu__item"><a href="/contacts.php">Контакты</a></li>
+                    </ul>
+                    <ul class="footer-menu">
+                        <li class="footer-menu__item current"><a href="/">Общежития по регионам</a></li>
+                        <li class="footer-menu__item"><a href="/transportnye_uslugi/">Транспортные услуги</a></li>
+                        <li class="footer-menu__item"><a href="/organizaciya_pitaniya/">Организация питания</a></li>
+                        <li class="footer-menu__item"><a href="/jobs/">Вакансии</a></li>
+                        <li class="footer-menu__item"><a href="/podbor_personala/">Подбор персонала</a></li>
+                        <li class="footer-menu__item"><a href="/sotrudnichestvo/">Сотрудничество</a></li>
+                        <li class="footer-menu__item"><a href="/aktsii/">Акции</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__call">
+                    <span class="footer__phone">
+                        <a onclick="ga('send', 'event', 'telefon', 'telefon-click'); yaCounter21524935.reachGoal('POZVONIT'); return true;" href="tel:+74952151053">
+                            <span class="ya-phone">+7 (495) 215-10-53</span>
+                        </a>
+                    </span>
+                    <a class="btn dobob" onclick="ga('send', 'event', 'Разместить_общежитие', 'клик'); yaCounter21524935.reachGoal('RAZMOB'); return true;">Разместить
+                        общежитие</a>
+                    <a class="btn request-call-phone" onclick="ga('send', 'event', 'Заказать  звонок', 'клик'); yaCounter21524935.reachGoal('PEREZVONIT1'); return true;">Заказать
+                        звонок</a>
+                    <!-- <a class="btn btn--red footer-btn-price" href="/obschezhitie-tsenyi/">Цены на общежития</a> -->
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div id="bx-request-call-phone"></div>
+    <div id="bx-dobob"></div>
+    <div id="bx-book-hostel"></div>
+    <div id="bx-open-login"></div>
+</div>
+
+
+<script type="text/javascript">if (!window.BX) window.BX = {};
+if (!window.BX.message) window.BX.message = function (mess) {
+    if (typeof mess == 'object') for (var i in mess) BX.message[i] = mess[i];
+    return true;
+};</script>
+<script type="text/javascript">(window.BX || top.BX).message({
+    'JS_CORE_LOADING': 'Загрузка...',
+    'JS_CORE_NO_DATA': '- Нет данных -',
+    'JS_CORE_WINDOW_CLOSE': 'Закрыть',
+    'JS_CORE_WINDOW_EXPAND': 'Развернуть',
+    'JS_CORE_WINDOW_NARROW': 'Свернуть в окно',
+    'JS_CORE_WINDOW_SAVE': 'Сохранить',
+    'JS_CORE_WINDOW_CANCEL': 'Отменить',
+    'JS_CORE_WINDOW_CONTINUE': 'Продолжить',
+    'JS_CORE_H': 'ч',
+    'JS_CORE_M': 'м',
+    'JS_CORE_S': 'с',
+    'JSADM_AI_HIDE_EXTRA': 'Скрыть лишние',
+    'JSADM_AI_ALL_NOTIF': 'Показать все',
+    'JSADM_AUTH_REQ': 'Требуется авторизация!',
+    'JS_CORE_WINDOW_AUTH': 'Войти',
+    'JS_CORE_IMAGE_FULL': 'Полный размер'
+});</script>
+<script type="text/javascript">(window.BX || top.BX).message({
+    'LANGUAGE_ID': 'ru',
+    'FORMAT_DATE': 'DD.MM.YYYY',
+    'FORMAT_DATETIME': 'DD.MM.YYYY HH:MI:SS',
+    'COOKIE_PREFIX': 'BITRIX_SM',
+    'SERVER_TZ_OFFSET': '10800',
+    'SITE_ID': 's1',
+    'SITE_DIR': '/',
+    'USER_ID': '',
+    'SERVER_TIME': '1568126247',
+    'USER_TZ_OFFSET': '0',
+    'USER_TZ_AUTO': 'Y',
+    'bitrix_sessid': '871dd5eb56b46abd4fe90b5b313a7b4a'
+});</script>
+
+<script type="text/javascript" src="js/core/core.min.js"></script>
+<script type="text/javascript" src="js/core/core_promise.min.js"></script>
+<script type="text/javascript" src="js/core/promise.min.js"></script>
+<script type="text/javascript" src="js/core/loadext.min.js"></script>
+<script type="text/javascript" src="js/core/extension.min.js"></script>
+<script type="text/javascript" src="js/core/core_popup.min.js"></script>
+<script type="text/javascript" src="js/core/core_ajax.min.js"></script>
+
+
+<script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="js/vendor/slick-slider/slick.min.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="js/top-menu/script.min.js"></script>
+
+<script type="text/javascript" src="js/custom.js"></script>
+
+<script>new Image().src = 'https://jobhostel.ru/bitrix/spread.php?s=QklUUklYX1NNX1NBTEVfVUlEATABLTEBLwEBAQI%3D&k=8b9ee2354cc7814b8ec7c6e4bebe80a2';
+</script>
+
+
+<script type="text/javascript">
+    try {
+        document.form_auth.USER_PASSWORD.focus();
+    } catch (e) {
+    }
+</script>
+
+<script>
+    $(window).resize(function () {
+        $.each($('.btn.btn_red.no-livequery'), function (key, object) {
+            if (key > 0) {
+                $(object).remove();
+            }
+        });
+        if (window.location.pathname === '/') {
+            if ($(window).width() < 1000) {
+                $('.btn.btn_red.no-livequery').show();
+            } else {
+                $('.btn.btn_red.no-livequery').hide();
+            }
+        }
+    });
+</script>
+<script>
+    window.onload = function () {
+
+        $(".ya-phone").each(
+            function () {
+
+                if ($(this).closest("a").length > 0) {
+                    $tel_a = $(this).closest("a").attr('href').replace(/[^+0-9]/g, '');
+                } else {
+                    $tel_span = $(this).text().replace(/[^+0-9]/g, '');
+                    $(this).closest("a").attr("href", 'tel:' + $tel_span);
+                }
+            }
+        );
+    };
+</script>
+</body>
+</html>

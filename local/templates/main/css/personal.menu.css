@@ -1,0 +1,70 @@
+.personal-menu {
+    text-align: justify;
+}
+.personal-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: table;
+}
+
+.personal-menu .onelevel > li {
+    background-color: #0072c6;
+    display: table-cell;
+    position: relative;
+    font-family: 'Open Sans', sans-serif;
+}
+.personal-menu .onelevel > li > span {
+    font-size: 15px;
+    text-decoration: none;
+    color: #fff;
+    padding: 6.5px 14px;
+    display: block;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+.personal-menu .onelevel > li > span a {
+    font-size: 15px;
+    text-decoration: none;
+    color: #fff;
+    /*! padding: 6.5px 14px; */
+    display: block;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+.personal-menu .onelevel li span:hover {color: #ffd800;}
+.personal-menu .twolevel li span:hover {color: #e21e25;}
+.personal-menu .twolevel {
+    background: #e6e6e6;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    z-index: 5;
+    width: 220px;
+    text-align: left;
+    opacity: 0;
+    transform: scaleY(0);
+    transform-origin :0 0;
+    transition: .2s ease-in-out;
+
+}
+.personal-menu .twolevel > li {
+    padding: 2px 4px;
+}
+.personal-menu .twolevel a {
+    color: #000;
+    text-align: left;
+    padding: 12px 15px;
+    font-size: 14px;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+}
+.personal-menu .twolevel li:last-child a {border-bottom: none;}
+.personal-menu .onelevel > li:hover .twolevel {
+    opacity: 1;
+    transform: scaleY(1);
+}
+
+.personal-menu .onelevel > li:hover .left-menu__link__arr {
+    background-image: url(../img/arrow_down_yellow.svg);
+    transform-origin :0 0;
+    transition: .2s ease-in-out;
+}

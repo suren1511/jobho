@@ -1,0 +1,8 @@
+.catalog-price {
+	 color:red;
+}
+@media (max-width: 400px) {
+    .btn.btn_blue.fancy {
+        margin-bottom: 15px;
+	}
+}
