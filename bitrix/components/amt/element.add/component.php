@@ -180,6 +180,7 @@ if ($_REQUEST['STEP'] == 'TWO' || $_REQUEST['STEP_NAZAD'] == 'ONE' || $_REQUEST[
 }
 if ($_REQUEST['PABLICK'] == 'Y'){
   CIBlockElement::SetPropertyValuesEx($_REQUEST['ID'], $arParams['IBLOCK_ID'], array('CHERNOVIK'=>''));
+
 }
 if ($_REQUEST['ODOBRIT'] == 'Y'){
   CIBlockElement::SetPropertyValuesEx($_REQUEST['ID'], $arParams['IBLOCK_ID'], array('MODERATOR'=>'','OTKL'=>'','PRICHINA'=>'','hide'=>''));

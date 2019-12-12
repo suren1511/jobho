@@ -8,11 +8,11 @@ else {
   $strGroups = CUser::GetUserGroupArray();
   $arUser = CUser::GetByID($USER->GetID())->Fetch();
 
-  if (in_array(12, $strGroups)) {
+  if (in_array(12, $strGroups) || in_array(13, $strGroups)) {
 
   }
 
-  if (in_array(12, $strGroups)): //соискатели
+  if (in_array(12, $strGroups) || in_array(13, $strGroups)): //соискатели
     ?>
     <? if ($arUser["ID"]): ?>
     <?
@@ -172,6 +172,7 @@ else {
     ?>
   <? endif; ?>
 
+
     <? if (!$resumeData["ID"] || $_REQUEST["edit"]): ?>
     <div class="b-personal-header">
       <h1>Новое резюме</h1>
@@ -191,6 +192,7 @@ else {
       $step = 1;
     }
     ?>
+
     <div class="steps">
       <div class="steps__item<?= $step == 1 ? ' steps__item-active' : '' ?>" data-step="1">1 <span>Шаг 1</span></div>
       <div class="steps__item<?= $step == 2 ? ' steps__item-active' : '' ?>" data-step="2">2 <span>Шаг 2</span></div>
@@ -403,6 +405,9 @@ else {
     else {
       $bDate = false;
     }
+    ?>
+
+    <?
     if ($_REQUEST["accept"] == "Y") {
       $propFields = array(
         "FIRST_NAME" => $_REQUEST["FIRST_NAME"] ? $_REQUEST["FIRST_NAME"] : "",
@@ -441,8 +446,26 @@ else {
       if ($_REQUEST["PREVIEW_TEXT"]) {
         $arFields["PREVIEW_TEXT"] = htmlspecialcharsbx($_REQUEST["PREVIEW_TEXT"]);
       }
-      $productID = $el->Add($arFields);
+      $arSelect = Array("ID", "IBLOCK_ID", "NAME");
+      $arFilter = Array("IBLOCK_ID" => "21", "ACTIVE_DATE" => "Y", "ACTIVE" => "Y", 'NAME' => $arFields['NAME']);
+      $arSort = Array("SORT" => "ASC",);
+      $res = CIBlockElement::GetList($arSort, $arFilter, false, false, $arSelect);
+      while ($ob = $res->GetNextElement()) {
+        $arFieldsel = $ob->GetFields();
+        $arPropsel = $ob->GetProperties();
+      }
+
+      if (!$arFieldsel['ID']) {
+        $productID = $el->Add($arFields);
+      }
+      else {
+        $productID = $arFieldsel['ID'];
+      }
+
       if ($productID) {
+        ?>
+        <!--<? print_r($_REQUEST)?>-->
+        <?
         if ($_REQUEST["WORK_COUNT"]) {
           $workRequestItems = array();
           for ($i = 1; $i <= $_REQUEST["WORK_COUNT"]; $i++) {
@@ -514,7 +537,7 @@ else {
           <input type="hidden" name="resume" value="<?= $resumeData["ID"] ?>"/>
         <? endif; ?>
 
-        <div class="step-item step-item-1"<?= $_REQUEST["step"] && $_REQUEST["step"] != 1 ? ' style="display: none;"' : '' ?>>
+        <div class="step-item step-item-1" <?= $_REQUEST["step"] && $_REQUEST["step"] != 1 ? ' style="display: none;"' : '' ?>>
           <div class="form-groups">
             <div class="form-group">
               <label for="i1">Имя</label>
@@ -552,9 +575,9 @@ else {
                 <div class="flex-row">
                   <div class="col-2">
                     <select class="form-control" id="i5" name="B_DATE_DATE" data-req="1">
-                      <option value=""<?= $bDate ? '' : ' selected' ?>>Дата</option>
+                      <option value="" <?= $bDate ? '' : ' selected' ?>>Дата</option>
                       <? for ($i = 1; $i <= 31; $i++): ?>
-                        <option value="<?= $i ?>"<?= $bDate && $bDate == $i ? ' selected' : '' ?>><?= $i ?></option>
+                        <option value="<?= $i ?>" <?= $bDate && $bDate == $i ? ' selected' : '' ?>><?= $i ?></option>
                       <? endfor; ?>
                     </select>
                   </div>
@@ -563,7 +586,7 @@ else {
                       <? $arMonths = SiteHelper::getMonthList(); ?>
                       <option value="" selected>Месяц</option>
                       <? foreach ($arMonths as $month): ?>
-                        <option value="<?= $month ?>"<?= $bMonth && $bMonth == $month ? ' selected' : '' ?>><?= $month ?></option>
+                        <option value="<?= $month ?>" <?= $bMonth && $bMonth == $month ? ' selected' : '' ?>><?= $month ?></option>
                       <? endforeach; ?>
                     </select>
                   </div>
@@ -571,7 +594,7 @@ else {
                     <select class="form-control" name="B_DATE_YEAR" data-req="1">
                       <option value="" selected>Год</option>
                       <? for ($i = 1945; $i <= date('Y'); $i++): ?>
-                        <option value="<?= $i ?>"<?= $bYear && $bYear == $i ? ' selected' : '' ?>><?= $i ?></option>
+                        <option value="<?= $i ?>" <?= $bYear && $bYear == $i ? ' selected' : '' ?>><?= $i ?></option>
                       <? endfor; ?>
                     </select>
                   </div>
@@ -607,7 +630,7 @@ else {
                     }
                     ?>
                     <div class="form-group-mini col-2">
-                      <input type="radio" class="styled" id="i6-<?= $counter ?>" value="<?= $enumFields["ID"] ?>" name="GENDER"<?= $checked ? ' checked' : '' ?>>
+                      <input type="radio" class="styled" id="i6-<?= $counter ?>" value="<?= $enumFields["ID"] ?>" name="GENDER" <?= $checked ? ' checked' : '' ?>>
                       <label for="i6-<?= $counter ?>"><?= $enumFields["VALUE"] ?></label>
                     </div>
                     <?
@@ -646,7 +669,7 @@ else {
                     }
                     ?>
                     <div class="form-group-mini col-2">
-                      <input type="radio" class="styled" id="i7-<?= $counter ?>" value="<?= $enumFields["ID"] ?>" name="NATIONALITY"<?= $checked ? ' checked' : '' ?>>
+                      <input type="radio" class="styled" id="i7-<?= $counter ?>" value="<?= $enumFields["ID"] ?>" name="NATIONALITY" <?= $checked ? ' checked' : '' ?>>
                       <label for="i7-<?= $counter ?>"><?= $enumFields["VALUE"] ?></label>
                     </div>
                     <?
@@ -697,7 +720,7 @@ else {
                     }
                     ?>
                     <div class="form-group-mini col-2">
-                      <input type="radio" class="styled" id="i10-<?= $counter ?>" value="<?= $enumFields["ID"] ?>" name="RESUME_TYPE"<?= $checked ? ' checked' : '' ?>>
+                      <input type="radio" class="styled" id="i10-<?= $counter ?>" value="<?= $enumFields["ID"] ?>" name="RESUME_TYPE" <?= $checked ? ' checked' : '' ?>>
                       <label for="i10-<?= $counter ?>"><?= $enumFields["VALUE"] ?></label>
                     </div>
                     <?
@@ -738,7 +761,7 @@ else {
                     }
                     ?>
                     <div class="form-group-mini col-2">
-                      <input type="radio" class="styled" id="i11-<?= $counter ?>" value="<?= $enumFields["ID"] ?>" name="RESUME_SHOW"<?= $checked ? ' checked' : '' ?>>
+                      <input type="radio" class="styled" id="i11-<?= $counter ?>" value="<?= $enumFields["ID"] ?>" name="RESUME_SHOW" <?= $checked ? ' checked' : '' ?>>
                       <label for="i11-<?= $counter ?>"><?= $enumFields["VALUE"] ?></label>
                     </div>
                     <?
@@ -759,7 +782,7 @@ else {
           </div>
         </div>
 
-        <div class="step-item step-item-2"<?= $_REQUEST["step"] != 2 ? ' style="display: none;"' : '' ?>>
+        <div class="step-item step-item-2" <?= $_REQUEST["step"] != 2 ? ' style="display: none;"' : '' ?>>
           <div class="summary__desc">
             <h2>Желаемая работа</h2>
             <p>Укажите, на какой должности вы хотите работать. Если вы готовы работать на разных должностях создайте для каждой из них отдельное резюме.</p>
@@ -794,7 +817,7 @@ else {
                     }
                     ?>
                     <div class="form-group-mini col-2">
-                      <input type="radio" class="styled" id="i13-<?= $counter ?>" value="<?= $enumFields["ID"] ?>" name="EXP"<?= $checked ? ' checked' : '' ?>>
+                      <input type="radio" class="styled" id="i13-<?= $counter ?>" value="<?= $enumFields["ID"] ?>" name="EXP" <?= $checked ? ' checked' : '' ?>>
                       <label for="i13-<?= $counter ?>"><?= $enumFields["VALUE"] ?></label>
                     </div>
                     <?
@@ -826,7 +849,7 @@ else {
               <label for="i16">Проф. область</label>
               <div class="input-group">
                 <select class="form-control" id="i16">
-                  <option value=""<?= !$resumeData["PROPERTY_PROF_AREA_VALUE"] ? ' selected' : '' ?>>Выбрать профессиональную область</option>
+                  <option value="" <?= !$resumeData["PROPERTY_PROF_AREA_VALUE"] ? ' selected' : '' ?>>Выбрать профессиональную область</option>
                   <?
                   $propertyEnums = CIBlockPropertyEnum::GetList(
                     array(
@@ -850,7 +873,7 @@ else {
                       }
                     }
                     ?>
-                    <option value="<?= $enumFields["ID"] ?>"<?= $checked ? ' selected' : '' ?>><?= $enumFields["VALUE"] ?></option>
+                    <option value="<?= $enumFields["ID"] ?>" <?= $checked ? ' selected' : '' ?>><?= $enumFields["VALUE"] ?></option>
                     <?
                   }
                   ?>
@@ -871,560 +894,563 @@ else {
           <?
           $counter = 1;
           if (count($arWorks)): ?>
-            <?
-            foreach ($arWorks as $workItem):
-              if ($workItem["PROPERTY_WORK_BEGIN_VALUE"]) {
-                $date = strtotime($workItem["PROPERTY_WORK_BEGIN_VALUE"]);
-                $workItem["WORK_BEGIN_DATE"] = date('d', $date);
-                $workItem["WORK_BEGIN_MONTH"] = SiteHelper::getMonthByNumber(date('m', $date));
-                $workItem["WORK_BEGIN_YEAR"] = date('Y', $date);
-              }
-              if ($workItem["PROPERTY_WORK_END_VALUE"] && $workItem["PROPERTY_WORK_END_VALUE"] != "По настоящее время") {
-                $date = strtotime($workItem["PROPERTY_WORK_END_VALUE"]);
-                $workItem["WORK_END_DATE"] = date('d', $date);
-                $workItem["WORK_END_MONTH"] = SiteHelper::getMonthByNumber(date('m', $date));
-                $workItem["WORK_END_YEAR"] = date('Y', $date);
-              }
-              ?>
-              <div class="form-groups">
-                <input type="hidden" name="WORK_ID_<?= $counter ?>" value="<?= $workItem["ID"] ?>">
-                <div class="form-group">
-                  <label for="i17_<?= $counter ?>">Начало работы</label>
-                  <div class="input-group">
-                    <div class="flex-row">
-                      <div class="col-2">
-                        <select class="form-control" id="i17_<?= $counter ?>" name="WORK_BEGIN_DATE_<?= $counter ?>">
-                          <option value=""<?= !$workItem["WORK_BEGIN_DATE"] ? ' selected' : '' ?>>Дата</option>
-                          <? for ($i = 1; $i <= 31; $i++): ?>
-                            <option value="<?= $i ?>"<?= $i == $workItem["WORK_BEGIN_DATE"] ? ' selected' : '' ?>><?= $i ?></option>
-                          <? endfor; ?>
-                        </select>
-                      </div>
-                      <div class="col-2">
-                        <select class="form-control" name="WORK_BEGIN_MONTH_<?= $counter ?>">
-                          <? $arMonths = SiteHelper::getMonthList(); ?>
-                          <option value=""<?= !$workItem["WORK_BEGIN_MONTH"] ? ' selected' : '' ?>>Месяц</option>
-                          <? foreach ($arMonths as $month): ?>
-                            <option value="<?= $month ?>"<?= $month == $workItem["WORK_BEGIN_MONTH"] ? ' selected' : '' ?>><?= $month ?></option>
-                          <? endforeach; ?>
-                        </select>
-                      </div>
-                      <div class="col-2">
-                        <select class="form-control" name="WORK_BEGIN_YEAR_<?= $counter ?>">
-                          <option value=""<?= !$workItem["WORK_BEGIN_YEAR"] ? ' selected' : '' ?>>Год</option>
-                          <? for ($i = 1945; $i <= date('Y'); $i++): ?>
-                            <option value="<?= $i ?>"<?= $i == $workItem["WORK_BEGIN_YEAR"] ? ' selected' : '' ?>><?= $i ?></option>
-                          <? endfor; ?>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="input-group-append">
-                    <div class="form-group-mini">
-                      <input type="checkbox" class="styled end-data-checkbox" id="i18_<?= $counter ?>" value="По настоящее время" name="WORK_END_CURRENT_<?= $counter ?>"<?= $workItem["PROPERTY_WORK_END_VALUE"] == 'По настоящее время' ? ' checked' : '' ?>>
-                      <label for="i18_<?= $counter ?>">По настоящее время</label>
-                    </div>
-                  </div>
-                </div>
-                <div class="form-group end-data-container">
-                  <label for="i9_<?= $counter ?>">Дата окончания</label>
-                  <div class="input-group">
-                    <div class="flex-row">
-                      <div class="col-2">
-                        <select class="form-control" id="i19_<?= $counter ?>" name="WORK_END_DATE_<?= $counter ?>">
-                          <option value=""<?= !$workItem["WORK_END_DATE"] ? ' selected' : '' ?>>Дата</option>
-                          <? for ($i = 1; $i <= 31; $i++): ?>
-                            <option value="<?= $i ?>"<?= $i == $workItem["WORK_END_DATE"] ? ' selected' : '' ?>><?= $i ?></option>
-                          <? endfor; ?>
-                        </select>
-                      </div>
-                      <div class="col-2">
-                        <select class="form-control" name="WORK_END_MONTH_<?= $counter ?>">
-                          <? $arMonths = SiteHelper::getMonthList(); ?>
-                          <option value=""<?= !$workItem["WORK_END_MONTH"] ? ' selected' : '' ?>>Месяц</option>
-                          <? foreach ($arMonths as $month): ?>
-                            <option value="<?= $month ?>"<?= $month == $workItem["WORK_END_MONTH"] ? ' selected' : '' ?>><?= $month ?></option>
-                          <? endforeach; ?>
-                        </select>
-                      </div>
-                      <div class="col-2">
-                        <select class="form-control" name="WORK_END_YEAR_<?= $counter ?>">
-                          <option value=""<?= !$workItem["WORK_END_YEAR"] ? ' selected' : '' ?>>Год</option>
-                          <? for ($i = 1945; $i <= date('Y'); $i++): ?>
-                            <option value="<?= $i ?>"<?= $i == $workItem["WORK_END_YEAR"] ? ' selected' : '' ?>><?= $i ?></option>
-                          <? endfor; ?>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+          <?
+          foreach ($arWorks
 
-                <div class="form-group">
-                  <label for="i20_<?= $counter ?>">Организация</label>
-                  <div class="input-group">
-                    <input class="form-control" type="text" id="i20_<?= $counter ?>" value="<?= $workItem["PROPERTY_ORG_VALUE"] ?>" name="ORG_<?= $counter ?>">
+          as $workItem):
+          if ($workItem["PROPERTY_WORK_BEGIN_VALUE"]) {
+            $date = strtotime($workItem["PROPERTY_WORK_BEGIN_VALUE"]);
+            $workItem["WORK_BEGIN_DATE"] = date('d', $date);
+            $workItem["WORK_BEGIN_MONTH"] = SiteHelper::getMonthByNumber(date('m', $date));
+            $workItem["WORK_BEGIN_YEAR"] = date('Y', $date);
+          }
+          if ($workItem["PROPERTY_WORK_END_VALUE"] && $workItem["PROPERTY_WORK_END_VALUE"] != "По настоящее время") {
+            $date = strtotime($workItem["PROPERTY_WORK_END_VALUE"]);
+            $workItem["WORK_END_DATE"] = date('d', $date);
+            $workItem["WORK_END_MONTH"] = SiteHelper::getMonthByNumber(date('m', $date));
+            $workItem["WORK_END_YEAR"] = date('Y', $date);
+          }
+          ?>
+          <div class="form-groups">
+            <input type="hidden" name="WORK_ID_<?= $counter ?>" value="<?= $workItem["ID"] ?>">
+            <div class="form-group">
+              <label for="i17_<?= $counter ?>">Начало работы</label>
+              <div class="input-group">
+                <div class="flex-row">
+                  <div class="col-2">
+                    <select class="form-control" id="i17_<?= $counter ?>" name="WORK_BEGIN_DATE_<?= $counter ?>">
+                      <option value="" <?= !$workItem["WORK_BEGIN_DATE"] ? ' selected' : '' ?>>Дата</option>
+                      <? for ($i = 1; $i <= 31; $i++): ?>
+                        <option value="<?= $i ?>" <?= $i == $workItem["WORK_BEGIN_DATE"] ? ' selected' : '' ?>><?= $i ?></option>
+                      <? endfor; ?>
+                    </select>
                   </div>
-                </div>
-                <div class="form-group">
-                  <label for="i21_<?= $counter ?>">Должность</label>
-                  <div class="input-group">
-                    <input class="form-control" type="text" id="i21_<?= $counter ?>" value="<?= $workItem["PROPERTY_WORK_POSITION_VALUE"] ?>" name="WORK_POSITION_<?= $counter ?>">
+                  <div class="col-2">
+                    <select class="form-control" name="WORK_BEGIN_MONTH_<?= $counter ?>">
+                      <? $arMonths = SiteHelper::getMonthList(); ?>
+                      <option value="" <?= !$workItem["WORK_BEGIN_MONTH"] ? ' selected' : '' ?>>Месяц</option>
+                      <? foreach ($arMonths as $month): ?>
+                        <option value="<?= $month ?>" <?= $month == $workItem["WORK_BEGIN_MONTH"] ? ' selected' : '' ?>><?= $month ?></option>
+                      <? endforeach; ?>
+                    </select>
                   </div>
-                </div>
-                <p><strong>Обязанности, функции, достижения</strong></p>
-                <div class="form-group">
-                  <div class="input-group">
-                    <textarea class="form-control" type="text" name="WORK_DETAIL_<?= $counter ?>"><?= $workItem["PROPERTY_WORK_DETAIL_VALUE"] ?></textarea>
-                  </div>
-                </div>
-              </div>
-              <? $counter++; ?>
-            <? endforeach; ?>
-          <? else: ?>
-            <div class="form-groups">
-              <div class="form-group">
-                <label for="i17_1">Начало работы</label>
-                <div class="input-group">
-                  <div class="flex-row">
-                    <div class="col-2">
-                      <select class="form-control" id="i17_1" name="WORK_BEGIN_DATE_1">
-                        <option value="" selected>Дата</option>
-                        <? for ($i = 1; $i <= 31; $i++): ?>
-                          <option value="<?= $i ?>"><?= $i ?></option>
-                        <? endfor; ?>
-                      </select>
-                    </div>
-                    <div class="col-2">
-                      <select class="form-control" name="WORK_BEGIN_MONTH_1">
-                        <? $arMonths = SiteHelper::getMonthList(); ?>
-                        <option value="" selected>Месяц</option>
-                        <? foreach ($arMonths as $month): ?>
-                          <option value="<?= $month ?>"><?= $month ?></option>
-                        <? endforeach; ?>
-                      </select>
-                    </div>
-                    <div class="col-2">
-                      <select class="form-control" name="WORK_BEGIN_YEAR_1">
-                        <option value="" selected>Год</option>
-                        <? for ($i = 1945; $i <= date('Y'); $i++): ?>
-                          <option value="<?= $i ?>"><?= $i ?></option>
-                        <? endfor; ?>
-                      </select>
-                    </div>
-                  </div>
-                </div>
-                <div class="input-group-append">
-                  <div class="form-group-mini">
-                    <input type="checkbox" class="styled" id="i18_1" value="before" name="WORK_BEGIN_CURRENT_1">
-                    <label for="i18_1">По настоящее время</label>
+                  <div class="col-2">
+                    <select class="form-control" name="WORK_BEGIN_YEAR_<?= $counter ?>">
+                      <option value="" <?= !$workItem["WORK_BEGIN_YEAR"] ? ' selected' : '' ?>>Год</option>
+                      <? for ($i = 1945; $i <= date('Y'); $i++): ?>
+                        <option value="<?= $i ?>" <?= $i == $workItem["WORK_BEGIN_YEAR"] ? ' selected' : '' ?>><?= $i ?></option>
+                      <? endfor; ?>
+                    </select>
                   </div>
                 </div>
               </div>
-              <div class="form-group">
-                <label for="i19_1">Дата окончания</label>
-                <div class="input-group">
-                  <div class="flex-row">
-                    <div class="col-2">
-                      <select class="form-control" id="i19_1" name="WORK_END_DATE_1">
-                        <option value="" selected>Дата</option>
-                        <? for ($i = 1; $i <= 31; $i++): ?>
-                          <option value="<?= $i ?>"><?= $i ?></option>
-                        <? endfor; ?>
-                      </select>
-                    </div>
-                    <div class="col-2">
-                      <select class="form-control" name="WORK_END_MONTH_1">
-                        <? $arMonths = SiteHelper::getMonthList(); ?>
-                        <option value="" selected>Месяц</option>
-                        <? foreach ($arMonths as $month): ?>
-                          <option value="<?= $month ?>"><?= $month ?></option>
-                        <? endforeach; ?>
-                      </select>
-                    </div>
-                    <div class="col-2">
-                      <select class="form-control" name="WORK_END_YEAR_1">
-                        <option value="" selected>Год</option>
-                        <? for ($i = 1945; $i <= date('Y'); $i++): ?>
-                          <option value="<?= $i ?>"><?= $i ?></option>
-                        <? endfor; ?>
-                      </select>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label for="i20_1">Организация</label>
-                <div class="input-group">
-                  <input class="form-control" type="text" id="i20_1" value="" name="ORG_1">
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="i21_1">Должность</label>
-                <div class="input-group">
-                  <input class="form-control" type="text" id="i21_1" value="" name="WORK_POSITION_1">
-                </div>
-              </div>
-              <p><strong>Обязанности, функции, достижения</strong></p>
-              <div class="form-group">
-                <div class="input-group">
-                  <textarea class="form-control" type="text" name="WORK_DETAIL_1"></textarea>
+              <div class="input-group-append">
+                <div class="form-group-mini">
+                  <input type="checkbox" class="styled end-data-checkbox" id="i18_<?= $counter ?>" value="По настоящее время" name="WORK_END_CURRENT_<?= $counter ?>" <?= $workItem["PROPERTY_WORK_END_VALUE"] == 'По настоящее время' ? ' checked' : '' ?>>
+                  <label for="i18_<?= $counter ?>">По настоящее время</label>
                 </div>
               </div>
             </div>
-          <? endif;
-          $counter++;
-          ?>
-          <div class="add-work-container"></div>
-          <div class="add-link"><a href="#" class="add-work-position" data-counter="<?= $counter ?>">+ Добавить место работы</a></div>
-          <input type="hidden" name="WORK_COUNT" value="<?= $counter ?>">
-          <?
-          //TODO:: изменять количество работ при выборе опыта работы
-          ?>
-          <div class="form-bottom">
-            <input type="submit" class="btn btn--red step-back-btn" data-step="1" value="Назад">
-            <input type="submit" class="btn btn--blue accept-step-btn" data-step="3" value="Продолжить">
+            <div class="form-group end-data-container">
+              <label for="i9_<?= $counter ?>">Дата окончания</label>
+              <div class="input-group">
+                <div class="flex-row">
+                  <div class="col-2">
+                    <select class="form-control" id="i19_<?= $counter ?>" name="WORK_END_DATE_<?= $counter ?>">
+                      <option value="" <?= !$workItem["WORK_END_DATE"] ? ' selected' : '' ?>>Дата</option>
+                      <? for ($i = 1; $i <= 31; $i++): ?>
+                        <option value="<?= $i ?>" <?= $i == $workItem["WORK_END_DATE"] ? ' selected' : '' ?>><?= $i ?></option>
+                      <? endfor; ?>
+                    </select>
+                  </div>
+                  <div class="col-2">
+                    <select class="form-control" name="WORK_END_MONTH_<?= $counter ?>">
+                      <? $arMonths = SiteHelper::getMonthList(); ?>
+                      <option value="" <?= !$workItem["WORK_END_MONTH"] ? ' selected' : '' ?>>Месяц</option>
+                      <? foreach ($arMonths as $month): ?>
+                        <option value="<?= $month ?>" <?= $month == $workItem["WORK_END_MONTH"] ? ' selected' : '' ?>><?= $month ?></option>
+                      <? endforeach; ?>
+                    </select>
+                  </div>
+                  <div class="col-2">
+                    <select class="form-control" name="WORK_END_YEAR_<?= $counter ?>">
+                      <option value="" <?= !$workItem["WORK_END_YEAR"] ? ' selected' : '' ?>>Год</option>
+                      <? for ($i = 1945; $i <= date('Y'); $i++): ?>
+                        <option value="<?= $i ?>" <?= $i == $workItem["WORK_END_YEAR"] ? ' selected' : '' ?>><?= $i ?></option>
+                      <? endfor; ?>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <!--                <div class="form-group">-->
+            <label for="i20_<?= $counter ?>">Организация</label>
+            <div class="input-group">
+              <input class="form-control" type="text" id="i20_<?= $counter ?>" value="<?= $workItem["PROPERTY_ORG_VALUE"] ?>" name="ORG_<?= $counter ?>">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="i21_<?= $counter ?>">Должность</label>
+            <div class="input-group">
+              <input class="form-control" type="text" id="i21_<?= $counter ?>" value="<?= $workItem["PROPERTY_WORK_POSITION_VALUE"] ?>" name="WORK_POSITION_<?= $counter ?>">
+            </div>
+          </div>
+          <p><strong>Обязанности, функции, достижения</strong></p>
+          <div class="form-group">
+            <div class="input-group">
+              <textarea class="form-control" type="text" name="WORK_DETAIL_<?= $counter ?>"><?= $workItem["PROPERTY_WORK_DETAIL_VALUE"] ?></textarea>
+            </div>
+          </div>
+        </div>
+      <? $counter++; ?>
+      <? endforeach; ?>
+      <? else: ?>
+        <div class="form-groups">
+          <div class="form-group">
+            <label for="i17_1">Начало работы</label>
+            <div class="input-group">
+              <div class="flex-row">
+                <div class="col-2">
+                  <select class="form-control" id="i17_1" name="WORK_BEGIN_DATE_1">
+                    <option value="" selected>Дата</option>
+                    <? for ($i = 1; $i <= 31; $i++): ?>
+                      <option value="<?= $i ?>"><?= $i ?></option>
+                    <? endfor; ?>
+                  </select>
+                </div>
+                <div class="col-2">
+                  <select class="form-control" name="WORK_BEGIN_MONTH_1">
+                    <? $arMonths = SiteHelper::getMonthList(); ?>
+                    <option value="" selected>Месяц</option>
+                    <? foreach ($arMonths as $month): ?>
+                      <option value="<?= $month ?>"><?= $month ?></option>
+                    <? endforeach; ?>
+                  </select>
+                </div>
+                <div class="col-2">
+                  <select class="form-control" name="WORK_BEGIN_YEAR_1">
+                    <option value="" selected>Год</option>
+                    <? for ($i = 1945; $i <= date('Y'); $i++): ?>
+                      <option value="<?= $i ?>"><?= $i ?></option>
+                    <? endfor; ?>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="input-group-append">
+              <div class="form-group-mini">
+                <input type="checkbox" class="styled" id="i18_1" value="before" name="WORK_BEGIN_CURRENT_1">
+                <label for="i18_1">По настоящее время</label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="i19_1">Дата окончания</label>
+            <div class="input-group">
+              <div class="flex-row">
+                <div class="col-2">
+                  <select class="form-control" id="i19_1" name="WORK_END_DATE_1">
+                    <option value="" selected>Дата</option>
+                    <? for ($i = 1; $i <= 31; $i++): ?>
+                      <option value="<?= $i ?>"><?= $i ?></option>
+                    <? endfor; ?>
+                  </select>
+                </div>
+                <div class="col-2">
+                  <select class="form-control" name="WORK_END_MONTH_1">
+                    <? $arMonths = SiteHelper::getMonthList(); ?>
+                    <option value="" selected>Месяц</option>
+                    <? foreach ($arMonths as $month): ?>
+                      <option value="<?= $month ?>"><?= $month ?></option>
+                    <? endforeach; ?>
+                  </select>
+                </div>
+                <div class="col-2">
+                  <select class="form-control" name="WORK_END_YEAR_1">
+                    <option value="" selected>Год</option>
+                    <? for ($i = 1945; $i <= date('Y'); $i++): ?>
+                      <option value="<?= $i ?>"><?= $i ?></option>
+                    <? endfor; ?>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="i20_1">Организация</label>
+            <div class="input-group">
+              <input class="form-control" type="text" id="i20_1" value="" name="ORG_1">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="i21_1">Должность</label>
+            <div class="input-group">
+              <input class="form-control" type="text" id="i21_1" value="" name="WORK_POSITION_1">
+            </div>
+          </div>
+          <p><strong>Обязанности, функции, достижения</strong></p>
+          <div class="form-group">
+            <div class="input-group">
+              <textarea class="form-control" type="text" name="WORK_DETAIL_1"></textarea>
+            </div>
+          </div>
+        </div>
+      <? endif;
+      $counter++;
+      ?>
+        <div class="add-work-container"></div>
+        <div class="add-link"><a href="#" class="add-work-position" data-counter="<?= $counter ?>">+ Добавить место работы</a></div>
+        <input type="hidden" name="WORK_COUNT" value="<?= $counter ?>">
+        <?
+        //TODO:: изменять количество работ при выборе опыта работы
+        ?>
+        <div class="form-bottom">
+          <input type="submit" class="btn btn--red step-back-btn" data-step="1" value="Назад">
+          <input type="submit" class="btn btn--blue accept-step-btn" data-step="3" value="Продолжить">
+        </div>
+    </div>
+
+    <div class="step-item step-item-3" <?= $_REQUEST["step"] != 2 ? ' style="display: none;"' : '' ?>>
+      <div class="form-groups">
+        <p><strong>Обо мне</strong></p>
+        <div class="form-group">
+          <div class="input-group">
+            <textarea class="form-control" type="text" name="PREVIEW_TEXT"><?= $resumeData["PREVIEW_TEXT"] ?></textarea>
+            <p class="nb">Расскажите дополнительную информацию, которая поможет работодателю лучше
+              узнать вас. Поле необязательно для заполнения.</p>
+          </div>
+        </div>
+      </div>
+      <h2>Образование</h2>
+      <div class="form-groups">
+        <div class="form-group align-top">
+          <label for="i22">Уровень</label>
+          <div class="input-group">
+            <div class="flex-row">
+              <?
+              $counter = 0;
+              $propertyEnums = CIBlockPropertyEnum::GetList(
+                array(
+                  "SORT" => "ASC"
+                ),
+                array(
+                  "IBLOCK_ID" => 21,
+                  "CODE" => "EDUC_LEVEL"
+                )
+              );
+              while ($enumFields = $propertyEnums->GetNext()) {
+                $checked = false;
+                if ($resumeData["PROPERTY_EDUC_LEVEL_VALUE"]) {
+                  if ($resumeData["PROPERTY_EDUC_LEVEL_VALUE"] == $enumFields["ID"]) {
+                    $checked = true;
+                  }
+                }
+                else {
+                  if (!$counter) {
+                    $checked = true;
+                  }
+                }
+                ?>
+                <div class="form-group-mini">
+                  <input type="radio" class="styled" id="i22-<?= $counter ?>" value="<?= $enumFields["ID"] ?>" name="EDUC_LEVEL" <?= $checked ? ' checked' : '' ?>>
+                  <label for="i22-<?= $counter ?>"><?= $enumFields["VALUE"] ?></label>
+                </div>
+                <?
+                $counter++;
+              }
+              ?>
+            </div>
           </div>
         </div>
 
-        <div class="step-item step-item-3"<?= $_REQUEST["step"] != 2 ? ' style="display: none;"' : '' ?>>
-          <div class="form-groups">
-            <p><strong>Обо мне</strong></p>
+        <?
+        $counter = 0;
+        if (count($arEdu)): ?>
+          <? foreach ($arEdu as $arEduItem): ?>
+            <? $counter++; ?>
+            <input type="hidden" name="EDU_ID_<?= $counter ?>" value="<?= $arEdu["ID"] ?>"/>
             <div class="form-group">
+              <label for="i23-<?= $counter ?>">Учебное заведение</label>
               <div class="input-group">
-                <textarea class="form-control" type="text" name="PREVIEW_TEXT"><?= $resumeData["PREVIEW_TEXT"] ?></textarea>
-                <p class="nb">Расскажите дополнительную информацию, которая поможет работодателю лучше
-                  узнать вас. Поле необязательно для заполнения.</p>
+                <input class="form-control" type="text" id="i23-<?= $counter ?>" value="<?= $arEduItem["PROPERTY_EDU_INSTITUT_VALUE"] ?>" name="EDU_INSTITUT_<?= $counter ?>">
               </div>
             </div>
-          </div>
-          <h2>Образование</h2>
-          <div class="form-groups">
-            <div class="form-group align-top">
-              <label for="i22">Уровень</label>
+            <div class="form-group">
+              <label for="i24-<?= $counter ?>">Факультет</label>
               <div class="input-group">
-                <div class="flex-row">
-                  <?
-                  $counter = 0;
-                  $propertyEnums = CIBlockPropertyEnum::GetList(
-                    array(
-                      "SORT" => "ASC"
-                    ),
-                    array(
-                      "IBLOCK_ID" => 21,
-                      "CODE" => "EDUC_LEVEL"
-                    )
-                  );
-                  while ($enumFields = $propertyEnums->GetNext()) {
-                    $checked = false;
-                    if ($resumeData["PROPERTY_EDUC_LEVEL_VALUE"]) {
-                      if ($resumeData["PROPERTY_EDUC_LEVEL_VALUE"] == $enumFields["ID"]) {
-                        $checked = true;
-                      }
-                    }
-                    else {
-                      if (!$counter) {
-                        $checked = true;
-                      }
-                    }
-                    ?>
-                    <div class="form-group-mini">
-                      <input type="radio" class="styled" id="i22-<?= $counter ?>" value="<?= $enumFields["ID"] ?>" name="EDUC_LEVEL"<?= $checked ? ' checked' : '' ?>>
-                      <label for="i22-<?= $counter ?>"><?= $enumFields["VALUE"] ?></label>
-                    </div>
-                    <?
-                    $counter++;
-                  }
-                  ?>
+                <input class="form-control" type="text" id="i24-<?= $counter ?>" value="<?= $arEduItem["PROPERTY_EDU_FAKULTET_VALUE"] ?>" name="EDU_FAKULTET_<?= $counter ?>">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="i25-<?= $counter ?>">Специализация</label>
+              <div class="input-group">
+                <input class="form-control" type="text" id="i25-<?= $counter ?>" value="<?= $arEduItem["PROPERTY_EDU_SPEC_VALUE"] ?>" name="EDU_SPEC_<?= $counter ?>">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="i26-<?= $counter ?>">Год окончания</label>
+              <div class="input-group">
+                <input class="form-control" type="text" id="i26-<?= $counter ?>" value="<?= $arEduItem["PROPERTY_EDU_END_VALUE"] != "По настоящее время" ? $arEduItem["PROPERTY_EDU_END_VALUE"] : '' ?>" name="EDU_END_<?= $counter ?>">
+              </div>
+              <div class="input-group-append">
+                <div class="form-group-mini">
+                  <input type="checkbox" class="styled" id="i27-<?= $counter ?>" value="По настоящее время" name="EDU_END_CURRENT_<?= $counter ?>" <?= $arEduItem["PROPERTY_EDU_END_VALUE"] == "По настоящее время" ? ' checked' : '' ?>>
+                  <label for="i27-<?= $counter ?>">По настоящее время</label>
                 </div>
               </div>
             </div>
+          <? endforeach; ?>
+        <? else: ?>
+          <? $counter++; ?>
+          <div class="form-group">
+            <label for="i23-<?= $counter ?>">Учебное заведение</label>
+            <div class="input-group">
+              <input class="form-control" type="text" id="i23-<?= $counter ?>" value="" name="EDU_INSTITUT_1">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="i24-<?= $counter ?>">Факультет</label>
+            <div class="input-group">
+              <input class="form-control" type="text" id="i24-<?= $counter ?>" value="" name="EDU_FAKULTET_1">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="i25-<?= $counter ?>">Специализация</label>
+            <div class="input-group">
+              <input class="form-control" type="text" id="i25-<?= $counter ?>" value="" name="EDU_SPEC_1">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="i26-<?= $counter ?>">Год окончания</label>
+            <div class="input-group">
+              <input class="form-control" type="text" id="i26-<?= $counter ?>" value="" name="EDU_END_1">
+            </div>
+            <div class="input-group-append">
+              <div class="form-group-mini">
+                <input type="checkbox" class="styled" id="i27-<?= $counter ?>" value="По настоящее время" name="EDU_END_CURRENT_1">
+                <label for="i27-<?= $counter ?>">По настоящее время</label>
+              </div>
+            </div>
+          </div>
+        <? endif; ?>
+        <div class="add-edu-container"></div>
+        <div class="add-link"><a href="#" class="edu-add" data-counter="<?= $counter ?>">+ Добавить место обучения</a></div>
+        <input type="hidden" name="EDU_COUNT" value="<?= $counter ?>">
 
+      </div>
+
+      <h2>Владение языками</h2>
+      <div class="form-groups">
+        <div class="form-group">
+          <label for="i28">Родной язык</label>
+          <div class="input-group">
+            <input class="form-control" type="text" id="i28" value="<?= $resumeData["PROPERTY_LANG_NATIVE_VALUE"] ?>" name="LANG_NATIVE">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="i29">Иностранные языки</label>
+          <div class="input-group">
+            <input class="form-control" type="text" id="i29" value="<?= $resumeData["PROPERTY_LANG_FOREIGN_VALUE"] ?>" name="LANG_FOREIGN">
+          </div>
+        </div>
+      </div>
+
+      <h2>Дополнительно</h2>
+      <div class="form-groups">
+        <div class="form-group align-top">
+          <label for="i30">Переезд</label>
+          <div class="input-group">
+            <div class="flex-row">
+              <?
+              $counter = 0;
+              $propertyEnums = CIBlockPropertyEnum::GetList(
+                array(
+                  "SORT" => "ASC"
+                ),
+                array(
+                  "IBLOCK_ID" => 21,
+                  "CODE" => "RELOCATION"
+                )
+              );
+              while ($enumFields = $propertyEnums->GetNext()) {
+                $checked = false;
+                if ($resumeData["PROPERTY_RELOCATION_VALUE"]) {
+                  if ($resumeData["PROPERTY_RELOCATION_VALUE"] == $enumFields["ID"]) {
+                    $checked = true;
+                  }
+                }
+                else {
+                  if (!$counter) {
+                    $checked = true;
+                  }
+                }
+                ?>
+                <div class="form-group-mini">
+                  <input type="radio" class="styled" id="i30-<?= $counter ?>" value="<?= $enumFields["ID"] ?>" name="RELOCATION" <?= $checked ? ' checked' : '' ?>>
+                  <label for="i30-<?= $counter ?>"><?= $enumFields["VALUE"] ?></label>
+                </div>
+                <?
+                $counter++;
+              }
+              ?>
+            </div>
+          </div>
+        </div>
+        <p><strong>Занятость</strong></p>
+        <div class="form-group">
+          <?
+          $counter = 0;
+          $propertyEnums = CIBlockPropertyEnum::GetList(
+            array(
+              "SORT" => "ASC"
+            ),
+            array(
+              "IBLOCK_ID" => 21,
+              "CODE" => "EMPLOYMENT"
+            )
+          );
+          while ($enumFields = $propertyEnums->GetNext()) {
+            $checked = false;
+            if ($resumeData["PROPERTY_EMPLOYMENT_VALUE"]) {
+              if (in_array($enumFields["ID"], $resumeData["PROPERTY_EMPLOYMENT_VALUE"])) {
+                $checked = true;
+              }
+            }
+            else {
+              if (!$counter) {
+                $checked = true;
+              }
+            }
+            ?>
+            <div class="form-group-mini">
+              <input type="checkbox" class="styled" id="i31-<?= $counter ?>" value="<?= $enumFields["ID"] ?>" name="EMPLOYMENT[]" <?= $checked ? ' checked' : '' ?>>
+              <label for="i31-<?= $counter ?>"><?= $enumFields["VALUE"] ?></label>
+            </div>
+            <?
+            $counter++;
+          }
+          ?>
+        </div>
+        <p><strong>График работы</strong></p>
+        <div class="form-group">
+          <?
+          $counter = 0;
+          $propertyEnums = CIBlockPropertyEnum::GetList(
+            array(
+              "SORT" => "ASC"
+            ),
+            array(
+              "IBLOCK_ID" => 21,
+              "CODE" => "SHEDULE"
+            )
+          );
+          while ($enumFields = $propertyEnums->GetNext()) {
+            $checked = false;
+            if ($resumeData["PROPERTY_SHEDULE_VALUE"]) {
+              if (in_array($enumFields["ID"], $resumeData["PROPERTY_SHEDULE_VALUE"])) {
+                $checked = true;
+              }
+            }
+            else {
+              if (!$counter) {
+                $checked = true;
+              }
+            }
+            ?>
+            <div class="form-group-mini">
+              <input type="checkbox" class="styled" id="i32-<?= $counter ?>" value="<?= $enumFields["ID"] ?>" name="SHEDULE[]" <?= $checked ? ' checked' : '' ?>>
+              <label for="i32-<?= $counter ?>"><?= $enumFields["VALUE"] ?></label>
+            </div>
+            <?
+            $counter++;
+          }
+          ?>
+        </div>
+        <p><strong>Наличие личного автомобиля</strong></p>
+        <div class="form-group">
+          <?
+          $counter = 0;
+          $propertyEnums = CIBlockPropertyEnum::GetList(
+            array(
+              "SORT" => "ASC"
+            ),
+            array(
+              "IBLOCK_ID" => 21,
+              "CODE" => "HAVE_AUTO"
+            )
+          );
+          while ($enumFields = $propertyEnums->GetNext()) {
+            $checked = false;
+            if ($resumeData["PROPERTY_HAVE_AUTO_VALUE"]) {
+              if ($resumeData["PROPERTY_HAVE_AUTO_VALUE"] == $enumFields["ID"]) {
+                $checked = true;
+              }
+            }
+            else {
+              if (!$counter) {
+                $checked = true;
+              }
+            }
+            ?>
+            <div class="form-group-mini">
+              <input type="radio" class="styled" id="i33-<?= $counter ?>" value="<?= $enumFields["ID"] ?>" name="HAVE_AUTO" <?= $checked ? ' checked' : '' ?>>
+              <label for="i33-<?= $counter ?>"><?= $enumFields["VALUE"] ?></label>
+            </div>
+            <?
+            $counter++;
+          }
+          ?>
+        </div>
+
+        <p><strong>Категория водительских прав</strong></p>
+        <div class="form-groups">
+          <div class="form-group">
             <?
             $counter = 0;
-            if (count($arEdu)): ?>
-              <? foreach ($arEdu as $arEduItem): ?>
-                <? $counter++; ?>
-                <input type="hidden" name="EDU_ID_<?= $counter ?>" value="<?= $arEdu["ID"] ?>"/>
-                <div class="form-group">
-                  <label for="i23-<?= $counter ?>">Учебное заведение</label>
-                  <div class="input-group">
-                    <input class="form-control" type="text" id="i23-<?= $counter ?>" value="<?= $arEduItem["PROPERTY_EDU_INSTITUT_VALUE"] ?>" name="EDU_INSTITUT_<?= $counter ?>">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="i24-<?= $counter ?>">Факультет</label>
-                  <div class="input-group">
-                    <input class="form-control" type="text" id="i24-<?= $counter ?>" value="<?= $arEduItem["PROPERTY_EDU_FAKULTET_VALUE"] ?>" name="EDU_FAKULTET_<?= $counter ?>">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="i25-<?= $counter ?>">Специализация</label>
-                  <div class="input-group">
-                    <input class="form-control" type="text" id="i25-<?= $counter ?>" value="<?= $arEduItem["PROPERTY_EDU_SPEC_VALUE"] ?>" name="EDU_SPEC_<?= $counter ?>">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="i26-<?= $counter ?>">Год окончания</label>
-                  <div class="input-group">
-                    <input class="form-control" type="text" id="i26-<?= $counter ?>" value="<?= $arEduItem["PROPERTY_EDU_END_VALUE"] != "По настоящее время" ? $arEduItem["PROPERTY_EDU_END_VALUE"] : '' ?>" name="EDU_END_<?= $counter ?>">
-                  </div>
-                  <div class="input-group-append">
-                    <div class="form-group-mini">
-                      <input type="checkbox" class="styled" id="i27-<?= $counter ?>" value="По настоящее время" name="EDU_END_CURRENT_<?= $counter ?>"<?= $arEduItem["PROPERTY_EDU_END_VALUE"] == "По настоящее время" ? ' checked' : '' ?>>
-                      <label for="i27-<?= $counter ?>">По настоящее время</label>
-                    </div>
-                  </div>
-                </div>
-              <? endforeach; ?>
-            <? else: ?>
-              <? $counter++; ?>
-              <div class="form-group">
-                <label for="i23-<?= $counter ?>">Учебное заведение</label>
-                <div class="input-group">
-                  <input class="form-control" type="text" id="i23-<?= $counter ?>" value="" name="EDU_INSTITUT_1">
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="i24-<?= $counter ?>">Факультет</label>
-                <div class="input-group">
-                  <input class="form-control" type="text" id="i24-<?= $counter ?>" value="" name="EDU_FAKULTET_1">
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="i25-<?= $counter ?>">Специализация</label>
-                <div class="input-group">
-                  <input class="form-control" type="text" id="i25-<?= $counter ?>" value="" name="EDU_SPEC_1">
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="i26-<?= $counter ?>">Год окончания</label>
-                <div class="input-group">
-                  <input class="form-control" type="text" id="i26-<?= $counter ?>" value="" name="EDU_END_1">
-                </div>
-                <div class="input-group-append">
-                  <div class="form-group-mini">
-                    <input type="checkbox" class="styled" id="i27-<?= $counter ?>" value="По настоящее время" name="EDU_END_CURRENT_1">
-                    <label for="i27-<?= $counter ?>">По настоящее время</label>
-                  </div>
-                </div>
-              </div>
-            <? endif; ?>
-            <div class="add-edu-container"></div>
-            <div class="add-link"><a href="#" class="edu-add" data-counter="<?= $counter ?>">+ Добавить место обучения</a></div>
-            <input type="hidden" name="EDU_COUNT" value="<?= $counter ?>">
-
-          </div>
-
-          <h2>Владение языками</h2>
-          <div class="form-groups">
-            <div class="form-group">
-              <label for="i28">Родной язык</label>
-              <div class="input-group">
-                <input class="form-control" type="text" id="i28" value="<?= $resumeData["PROPERTY_LANG_NATIVE_VALUE"] ?>" name="LANG_NATIVE">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="i29">Иностранные языки</label>
-              <div class="input-group">
-                <input class="form-control" type="text" id="i29" value="<?= $resumeData["PROPERTY_LANG_FOREIGN_VALUE"] ?>" name="LANG_FOREIGN">
-              </div>
-            </div>
-          </div>
-
-          <h2>Дополнительно</h2>
-          <div class="form-groups">
-            <div class="form-group align-top">
-              <label for="i30">Переезд</label>
-              <div class="input-group">
-                <div class="flex-row">
-                  <?
-                  $counter = 0;
-                  $propertyEnums = CIBlockPropertyEnum::GetList(
-                    array(
-                      "SORT" => "ASC"
-                    ),
-                    array(
-                      "IBLOCK_ID" => 21,
-                      "CODE" => "RELOCATION"
-                    )
-                  );
-                  while ($enumFields = $propertyEnums->GetNext()) {
-                    $checked = false;
-                    if ($resumeData["PROPERTY_RELOCATION_VALUE"]) {
-                      if ($resumeData["PROPERTY_RELOCATION_VALUE"] == $enumFields["ID"]) {
-                        $checked = true;
-                      }
-                    }
-                    else {
-                      if (!$counter) {
-                        $checked = true;
-                      }
-                    }
-                    ?>
-                    <div class="form-group-mini">
-                      <input type="radio" class="styled" id="i30-<?= $counter ?>" value="<?= $enumFields["ID"] ?>" name="RELOCATION"<?= $checked ? ' checked' : '' ?>>
-                      <label for="i30-<?= $counter ?>"><?= $enumFields["VALUE"] ?></label>
-                    </div>
-                    <?
-                    $counter++;
-                  }
-                  ?>
-                </div>
-              </div>
-            </div>
-            <p><strong>Занятость</strong></p>
-            <div class="form-group">
-              <?
-              $counter = 0;
-              $propertyEnums = CIBlockPropertyEnum::GetList(
-                array(
-                  "SORT" => "ASC"
-                ),
-                array(
-                  "IBLOCK_ID" => 21,
-                  "CODE" => "EMPLOYMENT"
-                )
-              );
-              while ($enumFields = $propertyEnums->GetNext()) {
-                $checked = false;
-                if ($resumeData["PROPERTY_EMPLOYMENT_VALUE"]) {
-                  if (in_array($enumFields["ID"], $resumeData["PROPERTY_EMPLOYMENT_VALUE"])) {
-                    $checked = true;
-                  }
+            $propertyEnums = CIBlockPropertyEnum::GetList(
+              array(
+                "SORT" => "ASC"
+              ),
+              array(
+                "IBLOCK_ID" => 21,
+                "CODE" => "AUTO_CATEGORY"
+              )
+            );
+            while ($enumFields = $propertyEnums->GetNext()) {
+              $checked = false;
+              if ($resumeData["PROPERTY_AUTO_CATEGORY_VALUE"]) {
+                if (in_array($enumFields["ID"], $resumeData["PROPERTY_AUTO_CATEGORY_VALUE"])) {
+                  $checked = true;
                 }
-                else {
-                  if (!$counter) {
-                    $checked = true;
-                  }
+              }
+              else {
+                if (!$counter) {
+                  $checked = true;
                 }
-                ?>
-                <div class="form-group-mini">
-                  <input type="checkbox" class="styled" id="i31-<?= $counter ?>" value="<?= $enumFields["ID"] ?>" name="EMPLOYMENT[]"<?= $checked ? ' checked' : '' ?>>
-                  <label for="i31-<?= $counter ?>"><?= $enumFields["VALUE"] ?></label>
-                </div>
-                <?
-                $counter++;
               }
               ?>
-            </div>
-            <p><strong>График работы</strong></p>
-            <div class="form-group">
-              <?
-              $counter = 0;
-              $propertyEnums = CIBlockPropertyEnum::GetList(
-                array(
-                  "SORT" => "ASC"
-                ),
-                array(
-                  "IBLOCK_ID" => 21,
-                  "CODE" => "SHEDULE"
-                )
-              );
-              while ($enumFields = $propertyEnums->GetNext()) {
-                $checked = false;
-                if ($resumeData["PROPERTY_SHEDULE_VALUE"]) {
-                  if (in_array($enumFields["ID"], $resumeData["PROPERTY_SHEDULE_VALUE"])) {
-                    $checked = true;
-                  }
-                }
-                else {
-                  if (!$counter) {
-                    $checked = true;
-                  }
-                }
-                ?>
-                <div class="form-group-mini">
-                  <input type="checkbox" class="styled" id="i32-<?= $counter ?>" value="<?= $enumFields["ID"] ?>" name="SHEDULE[]"<?= $checked ? ' checked' : '' ?>>
-                  <label for="i32-<?= $counter ?>"><?= $enumFields["VALUE"] ?></label>
-                </div>
-                <?
-                $counter++;
-              }
-              ?>
-            </div>
-            <p><strong>Наличие личного автомобиля</strong></p>
-            <div class="form-group">
-              <?
-              $counter = 0;
-              $propertyEnums = CIBlockPropertyEnum::GetList(
-                array(
-                  "SORT" => "ASC"
-                ),
-                array(
-                  "IBLOCK_ID" => 21,
-                  "CODE" => "HAVE_AUTO"
-                )
-              );
-              while ($enumFields = $propertyEnums->GetNext()) {
-                $checked = false;
-                if ($resumeData["PROPERTY_HAVE_AUTO_VALUE"]) {
-                  if ($resumeData["PROPERTY_HAVE_AUTO_VALUE"] == $enumFields["ID"]) {
-                    $checked = true;
-                  }
-                }
-                else {
-                  if (!$counter) {
-                    $checked = true;
-                  }
-                }
-                ?>
-                <div class="form-group-mini">
-                  <input type="radio" class="styled" id="i33-<?= $counter ?>" value="<?= $enumFields["ID"] ?>" name="HAVE_AUTO"<?= $checked ? ' checked' : '' ?>>
-                  <label for="i33-<?= $counter ?>"><?= $enumFields["VALUE"] ?></label>
-                </div>
-                <?
-                $counter++;
-              }
-              ?>
-            </div>
-
-            <p><strong>Категория водительских прав</strong></p>
-            <div class="form-groups">
-              <div class="form-group">
-                <?
-                $counter = 0;
-                $propertyEnums = CIBlockPropertyEnum::GetList(
-                  array(
-                    "SORT" => "ASC"
-                  ),
-                  array(
-                    "IBLOCK_ID" => 21,
-                    "CODE" => "AUTO_CATEGORY"
-                  )
-                );
-                while ($enumFields = $propertyEnums->GetNext()) {
-                  $checked = false;
-                  if ($resumeData["PROPERTY_AUTO_CATEGORY_VALUE"]) {
-                    if (in_array($enumFields["ID"], $resumeData["PROPERTY_AUTO_CATEGORY_VALUE"])) {
-                      $checked = true;
-                    }
-                  }
-                  else {
-                    if (!$counter) {
-                      $checked = true;
-                    }
-                  }
-                  ?>
-                  <div class="form-group-mini">
-                    <input type="checkbox" class="styled" id="i34-<?= $counter ?>" value="<?= $enumFields["ID"] ?>" name="AUTO_CATEGORY[]"<?= $checked ? ' checked' : '' ?>>
-                    <label for="i34-<?= $counter ?>"><?= $enumFields["VALUE"] ?></label>
-                  </div>
-                  <?
-                  $counter++;
-                }
-                ?>
+              <div class="form-group-mini">
+                <input type="checkbox" class="styled" id="i34-<?= $counter ?>" value="<?= $enumFields["ID"] ?>" name="AUTO_CATEGORY[]" <?= $checked ? ' checked' : '' ?>>
+                <label for="i34-<?= $counter ?>"><?= $enumFields["VALUE"] ?></label>
               </div>
-            </div>
-          </div>
-          <!--<input type="hidden" name="CREATE_COMPLETE" value="2370">-->
-          <div class="form-bottom">
-            <input type="submit" class="btn btn--red step-back-btn" value="Назад" data-step="2">
-            <a class="preview resume-preview-btn" href="#">Предварительный просмотр</a>
-            <input type="submit" class="btn btn--blue" value="Опубликовать резюме">
+              <?
+              $counter++;
+            }
+            ?>
           </div>
         </div>
-      </form>
+      </div>
+      <!--<input type="hidden" name="CREATE_COMPLETE" value="2370">-->
+      <div class="form-bottom">
+        <input type="submit" class="btn btn--red step-back-btn" value="Назад" data-step="2">
+        <a class="preview resume-preview-btn" href="#">Предварительный просмотр</a>
+        <input type="submit" class="btn btn--blue" value="Опубликовать резюме">
+      </div>
+    </div>
+    </form>
     </div>
   <? endif; ?>
   <? endif;

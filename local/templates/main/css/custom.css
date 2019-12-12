@@ -30,6 +30,7 @@
 	transform: translateY(-50%);
 }
 
+
 .item-card__phone .ya-phone a:hover{
 	color: #e21e25;
 }
@@ -102,7 +103,7 @@
 	border-color: #c3e6cb;
 }
 .has-errors {
-	border-color: #721c24;
+	border-color:  red !important;
 }
 .vertical-form .form-control.has-error {
 	border-color: red;

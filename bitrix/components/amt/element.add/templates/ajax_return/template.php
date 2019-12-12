@@ -510,7 +510,7 @@ $this->addExternalJS(SITE_TEMPLATE_PATH . "/plagins/loadfile/load-image.all.min.
       <div class="form-bottom">
         <input type="button" class="btn btn--red js_step_two" value="Назад">
         <a class="preview" href="#">Предварительный просмотр</a>
-        <input type="submit" class="btn btn--blue" value="Разместить вакансию">
+        <input type="submit" class="btn btn--blue" value="Опубликовать вакансию">
       </div>
 
     </form>
@@ -632,5 +632,6 @@ if ($_REQUEST['ID'] && $_REQUEST['PRED']=='Y'){
     false
   );
 }
+
 
 ?>

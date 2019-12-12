@@ -1,0 +1,492 @@
+Host: jobhostel.test.seo-experts.com
+Date: 2019-11-01 12:17:39
+Module: 
+array (
+  'LOGIN' => '123213213',
+  'PASSWORD' => '20072005',
+  'CONFIRM_PASSWORD' => '20072005',
+  'NAME' => 'Имя',
+  'LAST_NAME' => 'Фамилия',
+  'UF_USER_TYPE' => '1',
+  'GROUP_ID' => 
+  array (
+  ),
+  'CHECKWORD' => 'a93734c40bb525a820b0b67ad94ed232',
+  '~CHECKWORD_TIME' => 'now()',
+  'ACTIVE' => 'Y',
+  'CONFIRM_CODE' => '',
+  'LID' => 's1',
+  'LANGUAGE_ID' => 'ru',
+  'USER_IP' => '92.241.229.163',
+  'USER_HOST' => 'host92-241-229-163.etth.mark-itt.net',
+  'AUTO_TIME_ZONE' => '',
+)
+    EventHandler::OnUserRegisterHandler < ExecuteModuleEventEx < include < CBitrixComponent::__includeComponent < CBitrixComponent::includeComponent
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/modules/main/classes/general/module.php:475
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/components/bitrix/main.register/component.php:183
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/modules/main/classes/general/component.php:594
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/modules/main/classes/general/component.php:653
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/modules/main/classes/general/main.php:1039
+----------
+Host: jobhostel.test.seo-experts.com
+Date: 2019-11-01 12:46:10
+Module: 
+array (
+  'LOGIN' => 'lchanger2@gmail.com',
+  'PASSWORD' => '20072005',
+  'CONFIRM_PASSWORD' => '20072005',
+  'NAME' => 'Тест',
+  'LAST_NAME' => 'Тестов',
+  'UF_USER_TYPE' => '1',
+  'GROUP_ID' => 
+  array (
+  ),
+  'CHECKWORD' => '1b39a73db0f4b75e716db08bbafbea37',
+  '~CHECKWORD_TIME' => 'now()',
+  'ACTIVE' => 'Y',
+  'CONFIRM_CODE' => '',
+  'LID' => 's1',
+  'LANGUAGE_ID' => 'ru',
+  'USER_IP' => '92.241.229.163',
+  'USER_HOST' => 'host92-241-229-163.etth.mark-itt.net',
+  'AUTO_TIME_ZONE' => '',
+)
+    EventHandler::OnUserRegisterHandler < ExecuteModuleEventEx < include < CBitrixComponent::__includeComponent < CBitrixComponent::includeComponent
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/modules/main/classes/general/module.php:475
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/components/bitrix/main.register/component.php:183
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/modules/main/classes/general/component.php:594
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/modules/main/classes/general/component.php:653
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/modules/main/classes/general/main.php:1039
+----------
+Host: jobhostel.test.seo-experts.com
+Date: 2019-11-01 13:36:56
+Module: 
+array (
+  'LOGIN' => '79127516813',
+  'PASSWORD' => '20072005',
+  'CONFIRM_PASSWORD' => '20072005',
+  'NAME' => 'Тест',
+  'LAST_NAME' => 'Тестов',
+  'UF_USER_TYPE' => '1',
+  'GROUP_ID' => 
+  array (
+  ),
+  'CHECKWORD' => 'f87f36fadfbc77e9b89cd9ec09ecdd3a',
+  '~CHECKWORD_TIME' => 'now()',
+  'ACTIVE' => 'Y',
+  'CONFIRM_CODE' => '',
+  'LID' => 's1',
+  'LANGUAGE_ID' => 'ru',
+  'USER_IP' => '92.241.229.163',
+  'USER_HOST' => 'host92-241-229-163.etth.mark-itt.net',
+  'AUTO_TIME_ZONE' => '',
+)
+    EventHandler::OnUserRegisterHandler < ExecuteModuleEventEx < include < CBitrixComponent::__includeComponent < CBitrixComponent::includeComponent
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/modules/main/classes/general/module.php:475
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/components/bitrix/main.register/component.php:183
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/modules/main/classes/general/component.php:594
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/modules/main/classes/general/component.php:653
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/modules/main/classes/general/main.php:1039
+----------
+Host: jobhostel.test.seo-experts.com
+Date: 2019-11-01 13:48:22
+Module: 
+array (
+  'LOGIN' => '79127516813',
+  'PASSWORD' => '20072005',
+  'CONFIRM_PASSWORD' => '20072005',
+  'NAME' => 'Тест',
+  'LAST_NAME' => 'Тестов',
+  'UF_USER_TYPE' => '1',
+  'GROUP_ID' => 
+  array (
+  ),
+  'CHECKWORD' => '1cc776dd1861d239938b8008da603d5e',
+  '~CHECKWORD_TIME' => 'now()',
+  'ACTIVE' => 'Y',
+  'CONFIRM_CODE' => '',
+  'LID' => 's1',
+  'LANGUAGE_ID' => 'ru',
+  'USER_IP' => '92.241.229.163',
+  'USER_HOST' => 'host92-241-229-163.etth.mark-itt.net',
+  'AUTO_TIME_ZONE' => '',
+)
+    EventHandler::OnUserRegisterHandler < ExecuteModuleEventEx < include < CBitrixComponent::__includeComponent < CBitrixComponent::includeComponent
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/modules/main/classes/general/module.php:475
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/components/bitrix/main.register/component.php:183
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/modules/main/classes/general/component.php:594
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/modules/main/classes/general/component.php:653
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/modules/main/classes/general/main.php:1039
+----------
+Host: jobhostel.test.seo-experts.com
+Date: 2019-11-01 13:50:17
+Module: 
+array (
+  'LOGIN' => '79127516813',
+  'PASSWORD' => '20072005',
+  'CONFIRM_PASSWORD' => '20072005',
+  'NAME' => 'Тест',
+  'LAST_NAME' => 'Тестов',
+  'UF_USER_TYPE' => '1',
+  'UF_LOGIN_TYPE' => 'phone',
+  'GROUP_ID' => 
+  array (
+  ),
+  'CHECKWORD' => 'a87770c06f6e45c2f104c6825881043c',
+  '~CHECKWORD_TIME' => 'now()',
+  'ACTIVE' => 'Y',
+  'CONFIRM_CODE' => '',
+  'LID' => 's1',
+  'LANGUAGE_ID' => 'ru',
+  'USER_IP' => '92.241.229.163',
+  'USER_HOST' => 'host92-241-229-163.etth.mark-itt.net',
+  'AUTO_TIME_ZONE' => '',
+)
+    EventHandler::OnUserRegisterHandler < ExecuteModuleEventEx < include < CBitrixComponent::__includeComponent < CBitrixComponent::includeComponent
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/modules/main/classes/general/module.php:475
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/components/bitrix/main.register/component.php:183
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/modules/main/classes/general/component.php:594
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/modules/main/classes/general/component.php:653
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/modules/main/classes/general/main.php:1039
+----------
+Host: jobhostel.test.seo-experts.com
+Date: 2019-11-01 13:50:33
+Module: 
+array (
+  'LOGIN' => '79127516813',
+  'PASSWORD' => '20072005',
+  'CONFIRM_PASSWORD' => '20072005',
+  'NAME' => 'Тест',
+  'LAST_NAME' => 'Тестов',
+  'UF_USER_TYPE' => '1',
+  'UF_LOGIN_TYPE' => 'phone',
+  'GROUP_ID' => 
+  array (
+  ),
+  'CHECKWORD' => '76a99c3bffd548de43322cb8ccddeeb2',
+  '~CHECKWORD_TIME' => 'now()',
+  'ACTIVE' => 'Y',
+  'CONFIRM_CODE' => '',
+  'LID' => 's1',
+  'LANGUAGE_ID' => 'ru',
+  'USER_IP' => '92.241.229.163',
+  'USER_HOST' => 'host92-241-229-163.etth.mark-itt.net',
+  'AUTO_TIME_ZONE' => '',
+)
+    EventHandler::OnUserRegisterHandler < ExecuteModuleEventEx < include < CBitrixComponent::__includeComponent < CBitrixComponent::includeComponent
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/modules/main/classes/general/module.php:475
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/components/bitrix/main.register/component.php:183
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/modules/main/classes/general/component.php:594
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/modules/main/classes/general/component.php:653
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/modules/main/classes/general/main.php:1039
+----------
+Host: jobhostel.test.seo-experts.com
+Date: 2019-11-01 13:51:01
+Module: 
+array (
+  'LOGIN' => '79127516813',
+  'PASSWORD' => '20072005',
+  'CONFIRM_PASSWORD' => '20072005',
+  'NAME' => 'Тест',
+  'LAST_NAME' => 'Тестов',
+  'UF_USER_TYPE' => '1',
+  'UF_LOGIN_TYPE' => 'phone',
+  'GROUP_ID' => 
+  array (
+  ),
+  'CHECKWORD' => '1ea1ab19e6ec2f9e7c0a34ac13e444ea',
+  '~CHECKWORD_TIME' => 'now()',
+  'ACTIVE' => 'Y',
+  'CONFIRM_CODE' => '',
+  'LID' => 's1',
+  'LANGUAGE_ID' => 'ru',
+  'USER_IP' => '92.241.229.163',
+  'USER_HOST' => 'host92-241-229-163.etth.mark-itt.net',
+  'AUTO_TIME_ZONE' => '',
+)
+    EventHandler::OnUserRegisterHandler < ExecuteModuleEventEx < include < CBitrixComponent::__includeComponent < CBitrixComponent::includeComponent
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/modules/main/classes/general/module.php:475
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/components/bitrix/main.register/component.php:183
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/modules/main/classes/general/component.php:594
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/modules/main/classes/general/component.php:653
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/modules/main/classes/general/main.php:1039
+----------
+Host: jobhostel.test.seo-experts.com
+Date: 2019-11-01 13:51:27
+Module: 
+array (
+  'LOGIN' => '79127516813',
+  'PASSWORD' => '20072005',
+  'CONFIRM_PASSWORD' => '20072005',
+  'NAME' => 'Тест',
+  'LAST_NAME' => 'Тестов',
+  'UF_USER_TYPE' => '1',
+  'UF_LOGIN_TYPE' => 'phone',
+  'GROUP_ID' => 
+  array (
+  ),
+  'CHECKWORD' => '95b7e73e7105aeab3594d2746bc3ba0e',
+  '~CHECKWORD_TIME' => 'now()',
+  'ACTIVE' => 'Y',
+  'CONFIRM_CODE' => '',
+  'LID' => 's1',
+  'LANGUAGE_ID' => 'ru',
+  'USER_IP' => '92.241.229.163',
+  'USER_HOST' => 'host92-241-229-163.etth.mark-itt.net',
+  'AUTO_TIME_ZONE' => '',
+)
+    EventHandler::OnUserRegisterHandler < ExecuteModuleEventEx < include < CBitrixComponent::__includeComponent < CBitrixComponent::includeComponent
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/modules/main/classes/general/module.php:475
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/components/bitrix/main.register/component.php:183
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/modules/main/classes/general/component.php:594
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/modules/main/classes/general/component.php:653
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/modules/main/classes/general/main.php:1039
+----------
+Host: jobhostel.test.seo-experts.com
+Date: 2019-11-01 13:52:00
+Module: 
+array (
+  'LOGIN' => '79127516813',
+  'PASSWORD' => '20072005',
+  'CONFIRM_PASSWORD' => '20072005',
+  'NAME' => 'Тест',
+  'LAST_NAME' => 'Тестов',
+  'UF_USER_TYPE' => '1',
+  'UF_LOGIN_TYPE' => 'phone',
+  'GROUP_ID' => 
+  array (
+  ),
+  'CHECKWORD' => '985d763022514047f73ab2157541359a',
+  '~CHECKWORD_TIME' => 'now()',
+  'ACTIVE' => 'Y',
+  'CONFIRM_CODE' => '',
+  'LID' => 's1',
+  'LANGUAGE_ID' => 'ru',
+  'USER_IP' => '92.241.229.163',
+  'USER_HOST' => 'host92-241-229-163.etth.mark-itt.net',
+  'AUTO_TIME_ZONE' => '',
+)
+    EventHandler::OnUserRegisterHandler < ExecuteModuleEventEx < include < CBitrixComponent::__includeComponent < CBitrixComponent::includeComponent
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/modules/main/classes/general/module.php:475
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/components/bitrix/main.register/component.php:183
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/modules/main/classes/general/component.php:594
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/modules/main/classes/general/component.php:653
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/modules/main/classes/general/main.php:1039
+----------
+Host: jobhostel.test.seo-experts.com
+Date: 2019-11-01 13:52:52
+Module: 
+array (
+  'LOGIN' => '79127516813',
+  'PASSWORD' => '20072005',
+  'CONFIRM_PASSWORD' => '20072005',
+  'NAME' => 'Тест',
+  'LAST_NAME' => 'Тестов',
+  'UF_USER_TYPE' => '1',
+  'UF_LOGIN_TYPE' => 'phone',
+  'GROUP_ID' => 
+  array (
+  ),
+  'CHECKWORD' => 'b3cb4044355230152ae39689e8fb1b2d',
+  '~CHECKWORD_TIME' => 'now()',
+  'ACTIVE' => 'Y',
+  'CONFIRM_CODE' => '',
+  'LID' => 's1',
+  'LANGUAGE_ID' => 'ru',
+  'USER_IP' => '92.241.229.163',
+  'USER_HOST' => 'host92-241-229-163.etth.mark-itt.net',
+  'AUTO_TIME_ZONE' => '',
+)
+    EventHandler::OnUserRegisterHandler < ExecuteModuleEventEx < include < CBitrixComponent::__includeComponent < CBitrixComponent::includeComponent
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/modules/main/classes/general/module.php:475
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/components/bitrix/main.register/component.php:183
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/modules/main/classes/general/component.php:594
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/modules/main/classes/general/component.php:653
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/modules/main/classes/general/main.php:1039
+----------
+Host: jobhostel.test.seo-experts.com
+Date: 2019-11-01 13:53:13
+Module: 
+array (
+  'LOGIN' => '79127516813',
+  'PASSWORD' => '20072005',
+  'CONFIRM_PASSWORD' => '20072005',
+  'NAME' => 'Тест',
+  'LAST_NAME' => 'Тестов',
+  'UF_USER_TYPE' => '1',
+  'UF_LOGIN_TYPE' => 'phone',
+  'GROUP_ID' => 
+  array (
+  ),
+  'CHECKWORD' => '3b347852d5a0e3ee0e686e02f2717db4',
+  '~CHECKWORD_TIME' => 'now()',
+  'ACTIVE' => 'Y',
+  'CONFIRM_CODE' => '',
+  'LID' => 's1',
+  'LANGUAGE_ID' => 'ru',
+  'USER_IP' => '92.241.229.163',
+  'USER_HOST' => 'host92-241-229-163.etth.mark-itt.net',
+  'AUTO_TIME_ZONE' => '',
+)
+    EventHandler::OnUserRegisterHandler < ExecuteModuleEventEx < include < CBitrixComponent::__includeComponent < CBitrixComponent::includeComponent
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/modules/main/classes/general/module.php:475
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/components/bitrix/main.register/component.php:183
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/modules/main/classes/general/component.php:594
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/modules/main/classes/general/component.php:653
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/modules/main/classes/general/main.php:1039
+----------
+Host: jobhostel.test.seo-experts.com
+Date: 2019-11-01 13:54:08
+Module: 
+array (
+  'LOGIN' => '79127516813',
+  'PASSWORD' => '20072005',
+  'CONFIRM_PASSWORD' => '20072005',
+  'NAME' => 'Тест',
+  'LAST_NAME' => 'Тестов',
+  'UF_USER_TYPE' => '1',
+  'UF_LOGIN_TYPE' => 'phone',
+  'GROUP_ID' => 
+  array (
+  ),
+  'CHECKWORD' => '2b8522524640e8164b7af0d37f873f6c',
+  '~CHECKWORD_TIME' => 'now()',
+  'ACTIVE' => 'Y',
+  'CONFIRM_CODE' => '',
+  'LID' => 's1',
+  'LANGUAGE_ID' => 'ru',
+  'USER_IP' => '92.241.229.163',
+  'USER_HOST' => 'host92-241-229-163.etth.mark-itt.net',
+  'AUTO_TIME_ZONE' => '',
+)
+    EventHandler::OnUserRegisterHandler < ExecuteModuleEventEx < include < CBitrixComponent::__includeComponent < CBitrixComponent::includeComponent
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/modules/main/classes/general/module.php:475
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/components/bitrix/main.register/component.php:183
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/modules/main/classes/general/component.php:594
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/modules/main/classes/general/component.php:653
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/modules/main/classes/general/main.php:1039
+----------
+Host: jobhostel.test.seo-experts.com
+Date: 2019-11-01 13:55:42
+Module: 
+array (
+  'LOGIN' => '79127516813',
+  'PASSWORD' => '20072005',
+  'CONFIRM_PASSWORD' => '20072005',
+  'NAME' => 'Тест',
+  'LAST_NAME' => 'Тестов',
+  'UF_USER_TYPE' => '1',
+  'UF_LOGIN_TYPE' => 'phone',
+  'GROUP_ID' => 
+  array (
+  ),
+  'CHECKWORD' => '90351a3a5b6d2b102d45a42df2f5ac42',
+  '~CHECKWORD_TIME' => 'now()',
+  'ACTIVE' => 'Y',
+  'CONFIRM_CODE' => '',
+  'LID' => 's1',
+  'LANGUAGE_ID' => 'ru',
+  'USER_IP' => '92.241.229.163',
+  'USER_HOST' => 'host92-241-229-163.etth.mark-itt.net',
+  'AUTO_TIME_ZONE' => '',
+)
+    EventHandler::OnUserRegisterHandler < ExecuteModuleEventEx < include < CBitrixComponent::__includeComponent < CBitrixComponent::includeComponent
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/modules/main/classes/general/module.php:475
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/components/bitrix/main.register/component.php:183
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/modules/main/classes/general/component.php:594
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/modules/main/classes/general/component.php:653
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/modules/main/classes/general/main.php:1039
+----------
+Host: jobhostel.test.seo-experts.com
+Date: 2019-11-01 13:57:05
+Module: 
+array (
+  'LOGIN' => '79127516813',
+  'PASSWORD' => '20072005',
+  'CONFIRM_PASSWORD' => '20072005',
+  'NAME' => 'Тест',
+  'LAST_NAME' => 'Тестов',
+  'UF_USER_TYPE' => '1',
+  'UF_LOGIN_TYPE' => 'phone',
+  'GROUP_ID' => 
+  array (
+  ),
+  'CHECKWORD' => '2952e6e30ea61dbe19f9943ae81b21af',
+  '~CHECKWORD_TIME' => 'now()',
+  'ACTIVE' => 'Y',
+  'CONFIRM_CODE' => '',
+  'LID' => 's1',
+  'LANGUAGE_ID' => 'ru',
+  'USER_IP' => '92.241.229.163',
+  'USER_HOST' => 'host92-241-229-163.etth.mark-itt.net',
+  'AUTO_TIME_ZONE' => '',
+)
+    EventHandler::OnUserRegisterHandler < ExecuteModuleEventEx < include < CBitrixComponent::__includeComponent < CBitrixComponent::includeComponent
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/modules/main/classes/general/module.php:475
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/components/bitrix/main.register/component.php:183
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/modules/main/classes/general/component.php:594
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/modules/main/classes/general/component.php:653
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/modules/main/classes/general/main.php:1039
+----------
+Host: jobhostel.test.seo-experts.com
+Date: 2019-11-01 13:57:39
+Module: 
+array (
+  'LOGIN' => '79127516813',
+  'PASSWORD' => '20072005',
+  'CONFIRM_PASSWORD' => '20072005',
+  'NAME' => 'Тест',
+  'LAST_NAME' => 'Тестов',
+  'UF_USER_TYPE' => '1',
+  'UF_LOGIN_TYPE' => 'phone',
+  'GROUP_ID' => 
+  array (
+  ),
+  'CHECKWORD' => '7d10f2d9dd35e101090ea27c948dfdd3',
+  '~CHECKWORD_TIME' => 'now()',
+  'ACTIVE' => 'Y',
+  'CONFIRM_CODE' => '',
+  'LID' => 's1',
+  'LANGUAGE_ID' => 'ru',
+  'USER_IP' => '92.241.229.163',
+  'USER_HOST' => 'host92-241-229-163.etth.mark-itt.net',
+  'AUTO_TIME_ZONE' => '',
+)
+    EventHandler::OnUserRegisterHandler < ExecuteModuleEventEx < include < CBitrixComponent::__includeComponent < CBitrixComponent::includeComponent
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/modules/main/classes/general/module.php:475
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/components/bitrix/main.register/component.php:183
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/modules/main/classes/general/component.php:594
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/modules/main/classes/general/component.php:653
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/modules/main/classes/general/main.php:1039
+----------
+Host: jobhostel.test.seo-experts.com
+Date: 2019-11-01 13:59:10
+Module: 
+array (
+  'LOGIN' => '79127576799',
+  'PASSWORD' => '20072005',
+  'CONFIRM_PASSWORD' => '20072005',
+  'NAME' => 'Тест',
+  'LAST_NAME' => 'Тестов',
+  'UF_USER_TYPE' => '1',
+  'UF_LOGIN_TYPE' => 'phone',
+  'GROUP_ID' => 
+  array (
+  ),
+  'CHECKWORD' => '54091dded3abfa6b67071084d52a5ef0',
+  '~CHECKWORD_TIME' => 'now()',
+  'ACTIVE' => 'Y',
+  'CONFIRM_CODE' => '',
+  'LID' => 's1',
+  'LANGUAGE_ID' => 'ru',
+  'USER_IP' => '92.241.229.163',
+  'USER_HOST' => 'host92-241-229-163.etth.mark-itt.net',
+  'AUTO_TIME_ZONE' => '',
+)
+    EventHandler::OnUserRegisterHandler < ExecuteModuleEventEx < include < CBitrixComponent::__includeComponent < CBitrixComponent::includeComponent
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/modules/main/classes/general/module.php:475
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/components/bitrix/main.register/component.php:183
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/modules/main/classes/general/component.php:594
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/modules/main/classes/general/component.php:653
+	/var/www/jobhostel/data/www/jobhostel.test.seo-experts.com/bitrix/modules/main/classes/general/main.php:1039
+----------

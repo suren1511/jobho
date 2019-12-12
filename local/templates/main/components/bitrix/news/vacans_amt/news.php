@@ -11,6 +11,7 @@
 /** @var string $componentPath */
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
+$strGroups = CUser::GetUserGroupArray();
 ?>
 
 <?if($arParams["USE_RSS"]=="Y"):?>
@@ -41,7 +42,9 @@ $strGroups = CUser::GetUserGroupArray();
 
 global $arrFilterRab;
 $arrFilterRab = array(
-  'PROPERTY_USER'=>$USER->GetID()
+  'PROPERTY_USER'=>$USER->GetID(),
+  'PROPERTY_CHERNOVIK'=> false
+
 );
 
 if ($arCurDir[3]=='chernovik_vac.php'){
@@ -71,12 +74,10 @@ if ($arCurDir[2]=='manager'){
   $arrFilterRab=array();
 
 }
+
 ?>
 <?
-?>
-<!--<? print_r($arrFilterRab)?>-->
-<!--<? print_r($arCurDir)?>-->
-<?
+
 $APPLICATION->IncludeComponent(
 	"bitrix:news.list",
 	$templaite,
@@ -134,5 +135,12 @@ $APPLICATION->IncludeComponent(
 $APPLICATION->SetTitle("Мои вакансии");
 if ($arCurDir[3]=='template_vac.php'){
   $APPLICATION->SetTitle("Шаблоны вакансии");
+}
+if (in_array(12, $strGroups) || in_array(13, $strGroups)){
+  $APPLICATION->SetTitle("Все вакансии");
+
+}
+if ($arCurDir[3]=='chernovik_vac.php'){
+  $APPLICATION->SetTitle("Черновики вакансии");
 }
 ?>

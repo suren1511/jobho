@@ -203,9 +203,9 @@ $APPLICATION->SetTitle("Черновики вакансии");
 	false
 );?>
 <?
-if (in_array(14, $strGroups)){
+if (in_array(14, $strGroups) || in_array(15, $strGroups)){
   ?>
-<div class="form-bottom">
- <a href="/personal/vacancy/new_vacancy.php" class="btn btn--blue">Добавить вакансию</a>
-</div>
- <?}?> <br><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+  <div class="form-bottom">
+    <a href="/personal/vacancy/new_vacancy.php" class="btn btn--blue">Добавить вакансию</a>
+  </div>
+<?}?> <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

@@ -1,7 +1,8 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Настройки");
-?>                    <div class="vertical-form">
+?>
+  <div class="vertical-form">
                         <form action="#">
                             <div class="form-groups">
                                 <div class="form-group">

@@ -107,6 +107,8 @@ $(function () {
       }
     });
   });
+
+  //предварительный просмотр
   $(document).on('click','.vertical-form .form-bottom a.preview',function (e) {
     e.preventDefault();
     $('input[name="STEP_NAZAD"]').remove();
@@ -126,7 +128,26 @@ $(function () {
       }
     });
   });
+  //назад после предварительного просмотра
+$(document).on('click','.js_presv_nazad',function (e) {
+e.preventDefault();
+  var  idtovar = $(this).parent().data('id');
+  $.ajax({
+    type: "POST",
+    url: '/ajax/vakansy/forms.php',
+    data: {
+      STEP: 'TWO',
+      ID:idtovar
 
+    },
+    success: function (data) {
+
+      $('.js_block_nev_vac').html(data);
+
+    }
+  });
+
+});
   //возврат на первый шаг
   $(document).on('click','.vertical-form .form-bottom .btn.js_step_one',function (e) {
     $('input[name="STEP"]').remove();
@@ -145,6 +166,7 @@ $(function () {
   //возврат на второй шаг
   $(document).on('click','.vertical-form .form-bottom .btn.js_step_two',function (e) {
     $('input[name="STEP"]').remove();
+    $('input[name="PRED"]').remove();
     var formData = new FormData($('#step_tree')[0]);
     $.ajax({
       url: '/ajax/vakansy/forms.php',
@@ -161,7 +183,6 @@ $(function () {
   $(document).on('click','.js_pablick',function (e) {
     e.preventDefault();
     var  idtovar = $(this).parent().data('id');
-    console.log(idtovar);
     $.ajax({
       type: "POST",
       url: '/ajax/vakansy/forms.php',
@@ -181,6 +202,5 @@ $(function () {
 });
 function clickRegion() {
   var region = $(this).val();
-  console.log(region);
 
 }

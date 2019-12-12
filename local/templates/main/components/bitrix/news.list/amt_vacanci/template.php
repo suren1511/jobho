@@ -30,7 +30,7 @@ $strGroups = CUser::GetUserGroupArray();
         <a href="<?= $arItem['DETAIL_PAGE_URL'] ?>"><?= $arItem['NAME'] ?></a>
       </div>
       <?
-      if (in_array(14, $strGroups)) {
+      if (in_array(14, $strGroups) || in_array(15, $strGroups)) {
         ?>
         <div class="redactor"><form method="post" action="/personal/vacancy/new_vacancy.php">
             <input name="STEP_NAZAD" value="ONE" type="hidden">
@@ -49,12 +49,12 @@ $strGroups = CUser::GetUserGroupArray();
         <p><?= $arItem['PROPERTIES']['OBYZANN']['VALUE']['TEXT'] ?></p>
       </div>
       <div class="vacancy__item-bottom">
-        <div class="vacancy__item-open"><? if (!in_array('6', $strGroups) && !in_array('14', $strGroups)) {?><a href="#">Откликнуться</a><?}?></div>
+        <div class="vacancy__item-open"><? if (!in_array('6', $strGroups) && !in_array('14', $strGroups) && !in_array(15, $strGroups)) {?><a href="#">Откликнуться</a><?}?></div>
         <div class="vacancy__item-date">
           <time><?= $arItem['DISPLAY_ACTIVE_FROM'] ?></time>
         </div>
         <?
-        if (in_array(14, $strGroups)) {
+        if (in_array(14, $strGroups) || in_array(15, $strGroups)) {
 
           if (!$arItem['PROPERTIES']['MODERATOR']['VALUE'] && !$arItem['PROPERTIES']['OTKL']['VALUE']) {
             ?>
@@ -63,8 +63,25 @@ $strGroups = CUser::GetUserGroupArray();
           }
           else {
             ?>
-            <div class="status"><? if ($arItem['PROPERTIES']['OTKL']['VALUE']){?>Отклонено<? if (empty($arItem['PROPERTIES']['hide']['VALUE'])){?>: <?=$arItem['PROPERTIES']['PRICHINA']['VALUE'] ?><?}?><?} else{?>На модерации<?}?></div>
-
+            <div class="status"><?
+              if ($arItem['PROPERTIES']['OTKL']['VALUE']){
+                ?>Отклонено<?
+                if (empty($arItem['PROPERTIES']['hide']['VALUE'])){
+                  ?>: <?=$arItem['PROPERTIES']['PRICHINA']['VALUE'] ?><?}?><?
+              } else{
+                if (!$arItem['PROPERTIES']['CHERNOVIK']['VALUE']) {
+                  ?>На модерации<?
+                }
+                }
+              ?>
+            <?
+            if ($arItem['PROPERTIES']['CHERNOVIK']['VALUE']){
+              ?>
+              Черновик
+              <?
+            }
+            ?>
+            </div>
             <?
           }
         }

@@ -42,7 +42,10 @@ $this->setFrameMode(true);
     </div>
     <div class="vacancy__item-date"><time>Вакансия опубликована <?=$arResult['DISPLAY_ACTIVE_FROM'] ?></time></div>
     <div class="vacancy__item-bottom">
-      <div class="vacancy__item-open" data-id="<?=$arResult['ID'] ?>"><a href="#" class="btn btn--blue js_pablick">Опубликовать</a></div>
+      <div data-id="<?=$arResult['ID'] ?>" class="vacancy__item-open form-bottom">
+        <a href="#" class="btn btn--red js_presv_nazad">Назад</a>
+        <a href="#" class="btn btn--blue js_pablick">Опубликовать</a>
+      </div>
     </div>
   </div>
 </div>
