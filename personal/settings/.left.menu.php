@@ -1,11 +1,46 @@
 <?
 $aMenuLinks = Array(
 	Array(
+		"Основные", 
+		"/personal/settings/", 
+		Array(), 
+		Array(), 
+		"CSite::InGroup(array(1,6,12,13,14,15))" 
+	),
+	Array(
+		"Пароль", 
+		"/personal/settings/parol.php", 
+		Array(), 
+		Array(), 
+		"CSite::InGroup(array(1,6,12,13,14,15))" 
+	),
+	Array(
 		"Коллеги", 
 		"/personal/settings/kollegi.php", 
 		Array(), 
 		Array(), 
-		"" 
+		"CSite::InGroup(array(1,14,15))" 
+	),
+	Array(
+		"Логотип", 
+		"/personal/settings/logotip.php", 
+		Array(), 
+		Array(), 
+		"CSite::InGroup(array(1,14,15))" 
+	),
+	Array(
+		"Шаблоны уведомлений", 
+		"/personal/settings/shablony-uvedomleniy.php", 
+		Array(), 
+		Array(), 
+		"CSite::InGroup(array(1,14,15))" 
+	),
+	Array(
+		"Фотография", 
+		"/personal/settings/fotografiya.php", 
+		Array(), 
+		Array(), 
+		"CSite::InGroup(array(1,12,13))" 
 	)
 );
 ?>

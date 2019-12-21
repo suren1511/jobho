@@ -5,42 +5,70 @@ $aMenuLinks = Array(
 		"/personal/vacancy/", 
 		Array(), 
 		Array(), 
-		"" 
+		"CSite::InGroup(array(1,6,14,15))" 
+	),
+	Array(
+		"Отклики", 
+		"/personal/vacancy/", 
+		Array(), 
+		Array(), 
+		"CSite::InGroup(array(1,12,13))" 
 	),
 	Array(
 		"Резюме", 
 		"/personal/resume/", 
 		Array(), 
 		Array(), 
-		"CSite::InGroup(array(1,6,12,14))" 
+		"CSite::InGroup(array(1,6,12,13,14,15))" 
 	),
 	Array(
 		"Настройки", 
 		"/personal/settings/", 
 		Array(), 
 		Array(), 
-		"" 
+		"CSite::InGroup(array(1,6,12,13,14,15))" 
 	),
 	Array(
 		"Мои объекты", 
 		"/personal/lessor/", 
 		Array(), 
 		Array(), 
-		"CSite::InGroup(array(1,6,15))" 
+		"CSite::InGroup(array(1,6,12,15))" 
+	),
+	Array(
+		"Аренда жилья", 
+		"/personal/lessor/", 
+		Array(), 
+		Array(), 
+		"CSite::InGroup(array(1,13,14))" 
+	),
+	Array(
+		"Объекты", 
+		"/personal/lessor/", 
+		Array(), 
+		Array(), 
+		"CSite::InGroup(array(1,6))" 
 	),
 	Array(
 		"Помощь", 
 		"/personal/help/", 
 		Array(), 
 		Array(), 
-		"" 
+		"CSite::InGroup(array(1,6,12,13,14,15))" 
+	),
+	Array(
+		"Мой счет", 
+		"/personal/billing/", 
+		Array(), 
+		Array(), 
+		"CSite::InGroup(array(1,12,13,14,15))" 
 	),
 	Array(
 		"Финансы", 
 		"/personal/billing/", 
 		Array(), 
 		Array(), 
-		"" 
+		"CSite::InGroup(array(1,6))" 
 	)
 );
 ?>

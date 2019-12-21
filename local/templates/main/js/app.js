@@ -101,7 +101,6 @@ var app = function () {
     };
 
     var resumeHelper = function() {
-        console.log('resumeHelper');
         $(document).on('change', '.end-data-checkbox', function () {
             if ($(this).prop('checked')) {
                 $(this).closest('.form-groups').find('.end-data-container').hide();
@@ -208,10 +207,48 @@ var app = function () {
         })
     };
 
+    var registerHelper = function () {
+        $(document).on('change', '#regform-company input[name="UF_INN_COMPANY"]', function () {
+            if ($(this).val()) {
+                $.ajax({
+                    type: "GET",
+                    url: "/local/ajax/dadata.php?action=getCompanyData&inn=" + $(this).val(),
+                    timeout: 30000,
+                    dataType : "json",
+                    error: function(request,error) {
+                        if (error == "timeout") {
+                            alert('timeout');
+                        }
+                        else {
+                            alert('Error! Please try again!');
+                        }
+                    },
+                    success: function(data) {
+                        if (data.state == 'success') {
+                            if (data.data.name) {
+                                $('#regform-company input[name="UF_NAME_COMPANY"]').val(data.data.name);
+                            }
+                            if (data.data.city) {
+                                $('#regform-company input[name="UF_CITY"]').val(data.data.city);
+                            }
+                            if (data.data.firstName) {
+                                $('#regform-company input[name="REGISTER[NAME]"]').val(data.data.firstName);
+                            }
+                            if (data.data.lastName) {
+                                $('#regform-company input[name="REGISTER[LAST_NAME]"]').val(data.data.lastName);
+                            }
+                        }
+                    }
+                });
+            }
+        });
+    };
+
     return {
         init: function () {
             formsHandler();
             resumeHelper();
+            registerHelper();
         }
     };
 }();
